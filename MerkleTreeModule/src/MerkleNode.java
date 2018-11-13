@@ -1,2 +1,2 @@
-public class MerkleNode<V> {
+public abstract class MerkleNode<V> {
 }
