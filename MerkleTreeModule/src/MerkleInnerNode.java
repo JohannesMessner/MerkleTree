@@ -30,4 +30,12 @@ public class MerkleInnerNode<V> extends MerkleNode {
   public MerkleNode<V> getRight() {
     return right;
   }
+
+  private void setLeft(MerkleNode<V> left){
+    this.left = left;
+  }
+
+  private void setRight(MerkleNode<V> right){
+    this.right = right;
+  }
 }
