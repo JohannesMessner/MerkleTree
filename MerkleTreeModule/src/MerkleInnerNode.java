@@ -1,2 +1,2 @@
-public class MerkleInnerNode<V> {
+public class MerkleInnerNode<V> extends MerkleNode {
 }

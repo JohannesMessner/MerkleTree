@@ -1,2 +1,2 @@
-public class MutableMerkleTree<V> {
+public class MutableMerkleTree<V> implements Hashtree {
 }

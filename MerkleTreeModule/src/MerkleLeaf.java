@@ -1,2 +1,2 @@
-public class MerkleLeaf<V> {
+public class MerkleLeaf<V> extends MerkleNode {
 }
