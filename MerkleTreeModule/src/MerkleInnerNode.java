@@ -7,7 +7,9 @@ public class MerkleInnerNode<V> extends MerkleNode {
   private MerkleInnerNode<V> parent;
   private Optional<Long> hash;
 
-  public MerkleInnerNode (){}
+  public MerkleInnerNode (){
+    hash = Optional.empty();
+  }
 
   /**
    * Constructor that sets a Parent-Node
@@ -38,4 +40,6 @@ public class MerkleInnerNode<V> extends MerkleNode {
   private void setRight(MerkleNode<V> right){
     this.right = right;
   }
+
+
 }
