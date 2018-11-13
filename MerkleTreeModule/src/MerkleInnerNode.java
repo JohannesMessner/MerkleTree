@@ -8,7 +8,7 @@ public class MerkleInnerNode<V> extends MerkleNode {
   private Optional<Long> hash;
 
   public MerkleInnerNode (){
-    hash = Optional.empty();
+    super();
   }
 
   /**
@@ -42,4 +42,7 @@ public class MerkleInnerNode<V> extends MerkleNode {
   }
 
 
+  private void update(){
+    //ToDo
+  }
 }
