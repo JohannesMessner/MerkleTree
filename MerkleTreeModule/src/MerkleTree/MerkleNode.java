@@ -7,11 +7,14 @@ abstract class MerkleNode<V> {
   private MerkleNode<V> parent;
   private Optional<Long> hash;
 
+  /** Constructor that assigns an empty Optional-object to hash. */
   MerkleNode(){
     this.hash = Optional.empty();
   }
 
+  /** Alternative Constructor that also assignes a parent-node. */
   MerkleNode(MerkleNode<V> parent){
+    this.hash = Optional.empty();
     this.parent = parent;
   }
 
@@ -19,6 +22,11 @@ abstract class MerkleNode<V> {
     this.parent = parent;
   }
 
+  /**
+   * Returns hash-code withoud recalculating it.
+   *
+   * @return long hash-code
+   */
   public long getStoredHash(){
     if(hasHash()){
       return hash.get();
@@ -38,5 +46,10 @@ abstract class MerkleNode<V> {
     return parent;
   }
 
+  /**
+   * Abstract method to calculate the node's hash-code.
+   *
+   * @return long hash-code
+   */
   protected abstract long calculateHash();
 }

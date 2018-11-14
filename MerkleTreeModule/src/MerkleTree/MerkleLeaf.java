@@ -5,13 +5,14 @@ import java.util.Optional;
 class MerkleLeaf<V> extends MerkleNode {
 
   private Optional<V> value;
-  //protected Optional<Long> hash;
 
+  /** Constructor assigning an empty Optional-object to value. */
   MerkleLeaf(){
     super();
     this.value = Optional.empty();
   }
 
+  /** Alternative Constructor that also assigns a perent-node. */
   MerkleLeaf(MerkleInnerNode<V> parent){
     super(parent);
     this.value = Optional.empty();
@@ -22,6 +23,7 @@ class MerkleLeaf<V> extends MerkleNode {
     super.setHash(calculateHash());
   }
 
+  /** Calculates the hash-code. */
   @Override
   protected long calculateHash(){
     return value.hashCode();

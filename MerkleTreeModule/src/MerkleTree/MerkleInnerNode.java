@@ -36,6 +36,11 @@ class MerkleInnerNode<V> extends MerkleNode {
     this.right = right;
   }
 
+  /**
+   * Calcultes the Nodes hash-value based on the children's hashes.
+   *
+   * @return long hash-value
+   */
   @Override
   protected long calculateHash() {
     return left.getStoredHash() * right.getStoredHash();
