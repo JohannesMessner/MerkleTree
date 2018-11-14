@@ -20,7 +20,7 @@ class MerkleLeaf<V> extends MerkleNode {
 
   private void setValue(V value){
     this.value = Optional.of(value);
-    super.setHash(calculateHash());
+    update();
   }
 
   /** Calculates the hash-code. */

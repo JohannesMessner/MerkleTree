@@ -38,12 +38,20 @@ abstract class MerkleNode<V> {
     return hash.isPresent();
   }
 
-  protected void setHash(long hashValue){
+  private void setHash(long hashValue){
     hash = Optional.of(hashValue);
   }
 
   MerkleNode<V> getParent(){
     return parent;
+  }
+
+  protected void update(){
+    setHash(calculateHash());
+    if (parent == null){
+      return;
+    }
+    parent.update();
   }
 
   /**
