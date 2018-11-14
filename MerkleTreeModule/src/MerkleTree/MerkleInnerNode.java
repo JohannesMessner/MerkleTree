@@ -6,8 +6,6 @@ class MerkleInnerNode<V> extends MerkleNode {
 
   private MerkleNode<V> left;
   private MerkleNode<V> right;
-  private MerkleInnerNode<V> parent;
-  private Optional<Long> hash;
 
   public MerkleInnerNode (){
     super();
@@ -19,19 +17,14 @@ class MerkleInnerNode<V> extends MerkleNode {
    * @param parent MerkleTree.MerkleInnerNode that is the Nodes parent
    */
   public MerkleInnerNode(MerkleInnerNode<V> parent){
-    this.parent = parent;
-    this.hash = Optional.empty();
+    super(parent);
   }
 
-  public MerkleInnerNode<V> getParent() {
-    return parent;
-  }
-
-  public MerkleNode<V> getLeft() {
+  MerkleNode<V> getLeft() {
     return left;
   }
 
-  public MerkleNode<V> getRight() {
+  MerkleNode<V> getRight() {
     return right;
   }
 
@@ -43,7 +36,8 @@ class MerkleInnerNode<V> extends MerkleNode {
     this.right = right;
   }
 
-    private void update(){
-    //ToDo
+  @Override
+  protected long calculateHash() {
+    return left.getStoredHash() * right.getStoredHash();
   }
 }
