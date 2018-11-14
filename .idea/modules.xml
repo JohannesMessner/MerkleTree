@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MerkleTree.iml" filepath="$PROJECT_DIR$/MerkleTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MerkleTreeModule/MerkleTreeModule.iml" filepath="$PROJECT_DIR$/MerkleTreeModule/MerkleTreeModule.iml" />
+    </modules>
+  </component>
+</project>

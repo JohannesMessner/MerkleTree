@@ -1,6 +1,8 @@
+package MerkleTree;
+
 import java.util.Optional;
 
-public class MerkleLeaf<V> extends MerkleNode {
+class MerkleLeaf<V> extends MerkleNode {
 
   private MerkleInnerNode<V> parent;
   private Optional<V> value;
