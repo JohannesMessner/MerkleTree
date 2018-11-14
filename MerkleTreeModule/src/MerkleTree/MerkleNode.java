@@ -28,6 +28,7 @@ abstract class MerkleNode<V> {
    * @return long hash-code
    */
   public long getStoredHash(){
+    //hässlich, besser wäre über ifPresent
     if(hasHash()){
       return hash.get();
     }
