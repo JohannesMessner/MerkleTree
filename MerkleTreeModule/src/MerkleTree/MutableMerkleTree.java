@@ -7,10 +7,10 @@ public class MutableMerkleTree<V> implements Hashtree {
   private static final boolean left = true;
   private static final boolean right = false;
 
-  private MerkleInnerNode<V> parent;
+  public MerkleInnerNode<V> root;
 
   MutableMerkleTree(){
-    parent = new MerkleInnerNode<V>();
+    root = new MerkleInnerNode<V>();
   }
 
   public MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode){
@@ -22,13 +22,11 @@ public class MutableMerkleTree<V> implements Hashtree {
       if (direction.equals(right) && currentNode.getRight() instanceof MerkleInnerNode) {
         currentNode = (MerkleInnerNode) currentNode.getRight();
       }else if (direction.equals(right) && currentNode.getRight() instanceof  MerkleLeaf){
-        currentNode = (MerkleInnerNode) currentNode.getRight();
-        break;
+        return currentNode.getRight();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleInnerNode){
         currentNode = (MerkleInnerNode) currentNode.getLeft();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleLeaf){
-        currentNode = (MerkleInnerNode) currentNode.getLeft();
-        break;
+        return currentNode.getLeft();
       }
     }
 
@@ -70,7 +68,7 @@ public class MutableMerkleTree<V> implements Hashtree {
 
   @Override
   public void clear() {
-    parent = new MerkleInnerNode<V>();;
+    root = new MerkleInnerNode<V>();;
   }
 
   @Override

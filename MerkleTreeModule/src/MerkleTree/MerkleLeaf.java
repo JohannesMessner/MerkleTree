@@ -28,4 +28,14 @@ class MerkleLeaf<V> extends MerkleNode {
   protected long calculateHash(){
     return value.hashCode();
   }
+
+  @Override
+  protected boolean setLeft(MerkleNode left) {
+    return false;
+  }
+
+  @Override
+  protected boolean setRight(MerkleNode right) {
+    return false;
+  }
 }

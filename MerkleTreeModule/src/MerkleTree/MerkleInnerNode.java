@@ -28,13 +28,6 @@ class MerkleInnerNode<V> extends MerkleNode {
     return right;
   }
 
-  private void setLeft(MerkleNode<V> left){
-    this.left = left;
-  }
-
-  private void setRight(MerkleNode<V> right){
-    this.right = right;
-  }
 
   /**
    * Calcultes the Nodes hash-value based on the children's hashes.

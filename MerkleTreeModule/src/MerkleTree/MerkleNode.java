@@ -5,6 +5,8 @@ import java.util.Optional;
 abstract class MerkleNode<V> {
 
   private MerkleNode<V> parent;
+  private MerkleNode<V> left;
+  private MerkleNode<V> right;
   private Optional<Long> hash;
 
   /** Constructor that assigns an empty Optional-object to hash. */
@@ -13,7 +15,7 @@ abstract class MerkleNode<V> {
   }
 
   /** Alternative Constructor that also assignes a parent-node. */
-  MerkleNode(MerkleNode<V> parent){
+  MerkleNode(MerkleInnerNode<V> parent){
     this.hash = Optional.empty();
     this.parent = parent;
   }
@@ -61,4 +63,14 @@ abstract class MerkleNode<V> {
    * @return long hash-code
    */
   protected abstract long calculateHash();
+
+  protected boolean setLeft(MerkleNode<V> left){
+    this.left = left;
+    return true;
+  }
+
+  protected boolean setRight(MerkleNode<V> right){
+    this.right = right;
+    return true;
+  }
 }
