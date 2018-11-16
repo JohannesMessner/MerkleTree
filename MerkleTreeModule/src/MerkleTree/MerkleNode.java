@@ -41,7 +41,7 @@ abstract class MerkleNode<V> {
     return hash.isPresent();
   }
 
-  private void setHash(long hashValue){
+  protected void setHash(long hashValue){
     hash = Optional.of(hashValue);
   }
 

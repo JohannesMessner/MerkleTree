@@ -13,6 +13,10 @@ public class MutableMerkleTree<V> implements Hashtree {
     root = new MerkleInnerNode<V>();
   }
 
+  public MerkleNode<V> search(int index){
+    return search(index, root);
+  }
+
   public MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode){
     List<Boolean> pathToNode = calculatePathToNode(index);
     MerkleInnerNode<V> currentNode = startingNode;
@@ -58,12 +62,15 @@ public class MutableMerkleTree<V> implements Hashtree {
 
   @Override
   public void setHash(int position, long hash) {
-
+    search(position).setHash(hash);
   }
 
   @Override
   public void setValue(int positon, Object value) {
-
+    MerkleNode<V> targetNode = search(positon);
+    if (targetNode instanceof MerkleLeaf){
+      ((MerkleLeaf) targetNode).setValue(value);
+    }
   }
 
   @Override

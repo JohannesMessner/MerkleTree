@@ -18,7 +18,7 @@ class MerkleLeaf<V> extends MerkleNode {
     this.value = Optional.empty();
   }
 
-  private void setValue(V value){
+  protected void setValue(V value){
     this.value = Optional.of(value);
     update();
   }
