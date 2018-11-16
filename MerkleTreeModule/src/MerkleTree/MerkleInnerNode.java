@@ -20,15 +20,6 @@ class MerkleInnerNode<V> extends MerkleNode {
     super(parent);
   }
 
-  MerkleNode<V> getLeft() {
-    return left;
-  }
-
-  MerkleNode<V> getRight() {
-    return right;
-  }
-
-
   /**
    * Calcultes the Nodes hash-value based on the children's hashes.
    *

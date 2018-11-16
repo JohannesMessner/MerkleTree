@@ -15,7 +15,7 @@ public class MutableMerkleTree<V> implements Hashtree {
 
   public MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode){
     List<Boolean> pathToNode = calculatePathToNode(index);
-    MerkleInnerNode currentNode = startingNode;
+    MerkleInnerNode<V> currentNode = startingNode;
 
     for (Boolean direction : pathToNode){
 

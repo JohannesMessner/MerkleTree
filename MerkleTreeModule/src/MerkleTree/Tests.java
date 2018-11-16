@@ -6,7 +6,7 @@ public class Tests {
 
     tree.root.setLeft(new MerkleLeaf<String>(tree.root));
     tree.root.setRight(new MerkleInnerNode<String>(tree.root));
-    tree.root.getLeft().setLeft(new MerkleInnerNode<String>(tree.root.getLeft()));
+    //tree.root.getLeft().setLeft(new MerkleInnerNode<String>(tree.root.getLeft()));
 
     System.out.println(tree.search(1, tree.root) instanceof MerkleLeaf);
   }

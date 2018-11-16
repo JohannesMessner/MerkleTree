@@ -38,4 +38,14 @@ class MerkleLeaf<V> extends MerkleNode {
   protected boolean setRight(MerkleNode right) {
     return false;
   }
+
+  @Override
+  public MerkleNode<V> getLeft() {
+    return null;
+  }
+
+  @Override
+  public MerkleNode<V> getRight() {
+    return null;
+  }
 }

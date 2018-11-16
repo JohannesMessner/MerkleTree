@@ -73,4 +73,12 @@ abstract class MerkleNode<V> {
     this.right = right;
     return true;
   }
+
+  public MerkleNode<V> getLeft() {
+    return left;
+  }
+
+  public MerkleNode<V> getRight() {
+    return right;
+  }
 }
