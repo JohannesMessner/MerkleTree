@@ -75,7 +75,7 @@ public class MutableMerkleTree<V> implements Hashtree {
 
   @Override
   public void clear() {
-    root = new MerkleInnerNode<V>();;
+    root.clear();
   }
 
   @Override

@@ -29,4 +29,11 @@ class MerkleInnerNode<V> extends MerkleNode {
   protected long calculateHash() {
     return left.getStoredHash() * right.getStoredHash();
   }
+
+  @Override
+  public void clear(){
+    super.clear();
+    left.clear();
+    right.clear();
+  }
 }

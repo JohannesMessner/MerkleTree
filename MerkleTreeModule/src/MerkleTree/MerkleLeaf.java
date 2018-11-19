@@ -48,4 +48,10 @@ class MerkleLeaf<V> extends MerkleNode {
   public MerkleNode<V> getRight() {
     return null;
   }
+
+  @Override
+  public void clear(){
+    super.clear();
+    value = Optional.empty();
+  }
 }

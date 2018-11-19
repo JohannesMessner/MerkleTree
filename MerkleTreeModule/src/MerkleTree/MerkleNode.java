@@ -34,7 +34,7 @@ abstract class MerkleNode<V> {
     if(hasHash()){
       return hash.get();
     }
-    return -1;
+    return 0;
   }
 
   public boolean hasHash(){
@@ -72,6 +72,10 @@ abstract class MerkleNode<V> {
   protected boolean setRight(MerkleNode<V> right){
     this.right = right;
     return true;
+  }
+
+  public void clear(){
+    hash = Optional.empty();
   }
 
   public MerkleNode<V> getLeft() {
