@@ -4,6 +4,10 @@ public class MerkleTreeBuilder<V> {
 
   private MutableMerkleTree<V> tree;
 
+  MerkleTreeBuilder(){
+    this.tree = new MutableMerkleTree<>();
+  }
+
   public MerkleTreeBuilder<V> push(V value){
 
   }

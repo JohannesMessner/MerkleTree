@@ -13,6 +13,49 @@ public class MutableMerkleTree<V> implements Hashtree {
     root = new MerkleInnerNode<V>();
   }
 
+  /**
+   * Constructor creating enough nodes to accomodate a certain amount of list-items.
+   *
+   * @param numberOfLeafs int representing the # of Leafs == # of list items
+   */
+  MutableMerkleTree(int numberOfLeafs){
+    numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
+    int treeDepth = log2(numberOfLeafs);
+    this.root = new MerkleInnerNode<V>();
+
+    MerkleInnerNode<V> currentNode = root;
+    for (int i = 0; i < treeDepth; i++){
+      if (i == treeDepth-1){
+        currentNode.setLeft(new MerkleLeaf(currentNode));
+        currentNode.setRight(new MerkleLeaf(currentNode));
+      }else{
+        currentNode.setLeft(new MerkleInnerNode(currentNode));
+        currentNode.setRight(new MerkleInnerNode(currentNode));
+      }
+    }
+
+  }
+
+  private int log2(int n){
+    int exponent = 0;
+    while (Math.pow(2, exponent) != n){
+      exponent++;
+    }
+    return exponent;
+  }
+
+  private boolean isPowerOfTwo(int n){
+    return n > 0 && ((n &(n-1)) == 0 );
+  }
+
+  private int toNextPowerOfTwo(int n){
+
+    while (!isPowerOfTwo(n)){
+      n++;
+    }
+    return n;
+  }
+
   public MerkleNode<V> search(int index){
     return search(index, root);
   }
@@ -78,15 +121,15 @@ public class MutableMerkleTree<V> implements Hashtree {
     root.clear();
   }
 
+  //ToDo
   @Override
   public boolean isConsistent() {
     return false;
   }
 
+  //ToDo
   @Override
   public List<Integer> getMissing() {
     return null;
   }
-
-
 }
