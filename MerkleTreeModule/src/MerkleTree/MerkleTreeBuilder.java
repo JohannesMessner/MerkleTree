@@ -21,7 +21,7 @@ public class MerkleTreeBuilder<V> {
   }
 
   public Hashtree<V> build(){
-    return (UnmodifiableMerkleTree) tree;
+    return (UnmodifiableMerkleTree<V>) tree;
   }
 
   public void clear(){

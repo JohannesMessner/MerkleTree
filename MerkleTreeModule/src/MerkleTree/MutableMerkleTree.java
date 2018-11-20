@@ -3,7 +3,7 @@ package MerkleTree;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MutableMerkleTree<V> implements Hashtree {
+public class MutableMerkleTree<V> implements Hashtree<V> {
   private static final boolean left = true;
   private static final boolean right = false;
 
@@ -100,11 +100,11 @@ public class MutableMerkleTree<V> implements Hashtree {
     for (Boolean direction : pathToNode){
 
       if (direction.equals(right) && currentNode.getRight() instanceof MerkleInnerNode) {
-        currentNode = (MerkleInnerNode) currentNode.getRight();
+        currentNode = (MerkleInnerNode<V>) currentNode.getRight();
       }else if (direction.equals(right) && currentNode.getRight() instanceof  MerkleLeaf){
         return currentNode.getRight();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleInnerNode){
-        currentNode = (MerkleInnerNode) currentNode.getLeft();
+        currentNode = (MerkleInnerNode<V>) currentNode.getLeft();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleLeaf){
         return currentNode.getLeft();
       }
@@ -142,10 +142,10 @@ public class MutableMerkleTree<V> implements Hashtree {
   }
 
   @Override
-  public void setValue(int positon, Object value) {
+  public void setValue(int positon, V value) {
     MerkleNode<V> targetNode = search(positon);
     if (targetNode instanceof MerkleLeaf){
-      ((MerkleLeaf) targetNode).setValue(value);
+      ((MerkleLeaf<V>) targetNode).setValue(value);
     }
   }
 
