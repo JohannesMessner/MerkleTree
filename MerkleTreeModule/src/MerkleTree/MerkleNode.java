@@ -27,6 +27,15 @@ abstract class MerkleNode<V> {
   }
 
   /**
+   * Checks, if the stored hash of the Node is consistent with the expected hash.
+   *
+   * @return boolean that indicates if the hash is consistent.
+   */
+  protected boolean isConsistent(){
+    return hash.get() == calculateHash();
+  }
+
+  /**
    * Returns hash-code withoud recalculating it.
    *
    * @return long hash-code

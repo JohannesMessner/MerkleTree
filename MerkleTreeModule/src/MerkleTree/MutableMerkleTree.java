@@ -167,7 +167,10 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   //ToDo
   @Override
   public boolean isConsistent() {
-    return false;
+    if (getMissing().isEmpty()){
+      return false;
+    }
+    return root.isConsistent();
   }
 
   //ToDo

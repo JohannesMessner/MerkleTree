@@ -33,4 +33,14 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
     getLeft().clear();
     getRight().clear();
   }
+
+  /**
+   * Checks if the stored hash is consistent with the hashes of all successors.
+   *
+   * @return
+   */
+  @Override
+  protected boolean isConsistent(){
+    return super.isConsistent() && getLeft().isConsistent() && getRight().isConsistent();
+  }
 }
