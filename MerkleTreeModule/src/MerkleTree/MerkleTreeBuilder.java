@@ -28,9 +28,10 @@ public class MerkleTreeBuilder<V> {
     tree.clear();
   }
 
+  //ToDo
   @Override
   public String toString(){
-
+    return "";
   }
 
 }
