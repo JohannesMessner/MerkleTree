@@ -2,7 +2,7 @@ package MerkleTree;
 
 import java.util.Optional;
 
-class MerkleLeaf<V> extends MerkleNode {
+class MerkleLeaf<V> extends MerkleNode<V> {
 
   private Optional<V> value;
 
@@ -53,5 +53,11 @@ class MerkleLeaf<V> extends MerkleNode {
   public void clear(){
     super.clear();
     value = Optional.empty();
+  }
+
+  @Override
+  protected boolean push(V value) {
+    this.setValue(value);
+    return false;
   }
 }

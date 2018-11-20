@@ -9,7 +9,11 @@ public class MerkleTreeBuilder<V> {
   }
 
   public MerkleTreeBuilder<V> push(V value){
-
+    if (!tree.push(value)){
+      expandTree();
+      push(value);
+    }
+    return this;
   }
 
   public Hashtree<V> build(){

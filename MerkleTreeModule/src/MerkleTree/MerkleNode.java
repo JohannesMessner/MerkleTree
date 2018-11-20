@@ -14,7 +14,7 @@ abstract class MerkleNode<V> {
     this.hash = Optional.empty();
   }
 
-  /** Alternative Constructor that also assignes a parent-node. */
+  /** Alternative Constructor that also assigns a parent-node. */
   MerkleNode(MerkleInnerNode<V> parent){
     this.hash = Optional.empty();
     this.parent = parent;
@@ -84,5 +84,25 @@ abstract class MerkleNode<V> {
 
   public MerkleNode<V> getRight() {
     return right;
+  }
+
+  /**
+   * Pushes a value to the list.
+   *
+   * @param value V to be inserted
+   * @return boolean true, if value is inserted, false if list is too small
+   */
+  protected boolean push(V value){
+    if (this.getLeft() == null && this.getRight()==null){
+      return false;
+    }
+
+    if (!this.getLeft().hasHash()){
+      return this.getLeft().push(value);
+    }else if (!this.getRight().hasHash()){
+      return this.getRight().push(value);
+    }
+
+    return false;
   }
 }

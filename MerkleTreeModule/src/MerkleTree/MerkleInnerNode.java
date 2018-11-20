@@ -2,7 +2,7 @@ package MerkleTree;
 
 import java.util.Optional;
 
-class MerkleInnerNode<V> extends MerkleNode {
+class MerkleInnerNode<V> extends MerkleNode<V> {
 
   private MerkleNode<V> left;
   private MerkleNode<V> right;

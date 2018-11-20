@@ -121,6 +121,16 @@ public class MutableMerkleTree<V> implements Hashtree {
     root.clear();
   }
 
+  /**
+   * Pushes a value to the list.
+   *
+   * @param value V to be inserted
+   * @return boolean true, if value is inserted, false if list is too small
+   */
+  protected boolean push(V value){
+    return root.push(value);
+  }
+
   //ToDo
   @Override
   public boolean isConsistent() {
