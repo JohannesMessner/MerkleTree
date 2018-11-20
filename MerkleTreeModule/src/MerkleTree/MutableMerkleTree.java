@@ -7,10 +7,13 @@ public class MutableMerkleTree<V> implements Hashtree {
   private static final boolean left = true;
   private static final boolean right = false;
 
-  public MerkleInnerNode<V> root;
+  private MerkleInnerNode<V> root;
+  private int numberOfLeafs;
+
 
   MutableMerkleTree(){
     root = new MerkleInnerNode<V>();
+    this.numberOfLeafs = 0;
   }
 
   /**
@@ -20,20 +23,50 @@ public class MutableMerkleTree<V> implements Hashtree {
    */
   MutableMerkleTree(int numberOfLeafs){
     numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
-    int treeDepth = log2(numberOfLeafs);
     this.root = new MerkleInnerNode<V>();
+    this.numberOfLeafs = numberOfLeafs;
+    createNodeStructure(numberOfLeafs, root);
 
-    MerkleInnerNode<V> currentNode = root;
+//    MerkleInnerNode<V> currentNode = root;
+//    for (int i = 0; i < treeDepth; i++){
+//      if (i == treeDepth-1){
+//        currentNode.setLeft(new MerkleLeaf(currentNode));
+//        currentNode.setRight(new MerkleLeaf(currentNode));
+//      }else{
+//        currentNode.setLeft(new MerkleInnerNode(currentNode));
+//        currentNode.setRight(new MerkleInnerNode(currentNode));
+//      }
+//    }
+  }
+
+  /**
+   * Creates the needed Nodes below a given Node with a minimum number of leaves.
+   *
+   * @param numberOfLeafs int representing the minimum number of leaves
+   * @param startingNode MerkleInnerNode<V> starting point of the node-creation
+   */
+  private void createNodeStructure(int numberOfLeafs, MerkleInnerNode<V> startingNode){
+    numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
+    int treeDepth = log2(numberOfLeafs);
+
+    MerkleInnerNode<V> currentNode = startingNode;
     for (int i = 0; i < treeDepth; i++){
       if (i == treeDepth-1){
-        currentNode.setLeft(new MerkleLeaf(currentNode));
-        currentNode.setRight(new MerkleLeaf(currentNode));
+        currentNode.setLeft(new MerkleLeaf<V>(currentNode));
+        currentNode.setRight(new MerkleLeaf<V>(currentNode));
       }else{
-        currentNode.setLeft(new MerkleInnerNode(currentNode));
-        currentNode.setRight(new MerkleInnerNode(currentNode));
+        currentNode.setLeft(new MerkleInnerNode<V>(currentNode));
+        currentNode.setRight(new MerkleInnerNode<V>(currentNode));
       }
     }
+  }
 
+  protected void expand(){
+    this.root.setParent(new MerkleInnerNode<V>());
+    this.root.getParent().setLeft(this.root);
+    this.root.getParent().setRight(new MerkleInnerNode<V>((MerkleInnerNode<V>) this.root.getParent()));
+    createNodeStructure(this.numberOfLeafs, (MerkleInnerNode<V>) root.getRight());
+    this.numberOfLeafs *= 2;
   }
 
   private int log2(int n){

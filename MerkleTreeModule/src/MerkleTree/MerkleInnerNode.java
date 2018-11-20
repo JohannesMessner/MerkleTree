@@ -4,9 +4,6 @@ import java.util.Optional;
 
 class MerkleInnerNode<V> extends MerkleNode<V> {
 
-  private MerkleNode<V> left;
-  private MerkleNode<V> right;
-
   public MerkleInnerNode (){
     super();
   }
@@ -27,13 +24,13 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected long calculateHash() {
-    return left.getStoredHash() * right.getStoredHash();
+    return getLeft().getStoredHash() * getRight().getStoredHash();
   }
 
   @Override
   public void clear(){
     super.clear();
-    left.clear();
-    right.clear();
+    getLeft().clear();
+    getRight().clear();
   }
 }

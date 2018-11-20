@@ -16,6 +16,10 @@ public class MerkleTreeBuilder<V> {
     return this;
   }
 
+  private void expandTree(){
+    tree.expand();
+  }
+
   public Hashtree<V> build(){
     return (UnmodifiableMerkleTree) tree;
   }

@@ -20,8 +20,10 @@ abstract class MerkleNode<V> {
     this.parent = parent;
   }
 
-  private void setParent(MerkleNode<V> parent){
-    this.parent = parent;
+  public void setParent(MerkleNode<V> parent){
+    if (this.parent == null) {
+      this.parent = parent;
+    }
   }
 
   /**
