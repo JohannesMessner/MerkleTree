@@ -12,14 +12,13 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
 
 
   MutableMerkleTree(){
-    root = new MerkleInnerNode<V>();
-    this.numberOfLeafs = 0;
+    this(0);
   }
 
   /**
    * Constructor creating enough nodes to accomodate a certain amount of list-items.
    *
-   * @param numberOfLeafs int representing the # of Leafs == # of list items
+   * @param numberOfLeafs int representing the # of Leafs (= # of list items)
    */
   MutableMerkleTree(int numberOfLeafs){
     numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
@@ -27,16 +26,6 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     this.numberOfLeafs = numberOfLeafs;
     createNodeStructure(numberOfLeafs, root);
 
-//    MerkleInnerNode<V> currentNode = root;
-//    for (int i = 0; i < treeDepth; i++){
-//      if (i == treeDepth-1){
-//        currentNode.setLeft(new MerkleLeaf(currentNode));
-//        currentNode.setRight(new MerkleLeaf(currentNode));
-//      }else{
-//        currentNode.setLeft(new MerkleInnerNode(currentNode));
-//        currentNode.setRight(new MerkleInnerNode(currentNode));
-//      }
-//    }
   }
 
   /**
@@ -65,6 +54,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     this.root.setParent(new MerkleInnerNode<V>());
     this.root.getParent().setLeft(this.root);
     this.root.getParent().setRight(new MerkleInnerNode<V>((MerkleInnerNode<V>) this.root.getParent()));
+    this.root = (MerkleInnerNode<V>) this.root.getParent();
     createNodeStructure(this.numberOfLeafs, (MerkleInnerNode<V>) root.getRight());
     this.numberOfLeafs *= 2;
   }
@@ -78,7 +68,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   }
 
   private boolean isPowerOfTwo(int n){
-    return n > 0 && ((n &(n-1)) == 0 );
+    return n > 1 && ((n &(n-1)) == 0 );
   }
 
   private int toNextPowerOfTwo(int n){
@@ -177,5 +167,10 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   @Override
   public List<Integer> getMissing() {
     return null;
+  }
+
+  @Override
+  public String toString(){
+    return root.toString();
   }
 }

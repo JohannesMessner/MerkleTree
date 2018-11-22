@@ -43,4 +43,12 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
   protected boolean isConsistent(){
     return super.isConsistent() && getLeft().isConsistent() && getRight().isConsistent();
   }
+
+  @Override
+  protected String addValue(String str){
+    if (getStoredHash() == 0) {
+      return str + "*";
+    }
+    return  str + this.getStoredHash();
+  }
 }

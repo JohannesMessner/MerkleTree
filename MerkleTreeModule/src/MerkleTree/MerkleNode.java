@@ -116,4 +116,51 @@ abstract class MerkleNode<V> {
 
     return false;
   }
+
+  @Override
+  public String toString(){
+    String outpoutString = "";
+    outpoutString = addOpenBracket(outpoutString);
+    outpoutString = addValue(outpoutString);
+    outpoutString = addSpace(outpoutString);
+    outpoutString = addLeftSubtree(outpoutString);
+    outpoutString = addSpace(outpoutString);
+    outpoutString = addRightSubree(outpoutString);
+    outpoutString = addClosingBracket(outpoutString);
+    return outpoutString;
+  }
+
+  private String addOpenBracket(String str){
+    return "(" + str;
+  }
+
+  protected abstract String addValue(String str);
+
+  private String addSpace(String str){
+    return str + " ";
+  }
+
+  private String addLeftSubtree(String str){
+    StringBuilder builder = new StringBuilder(str);
+
+    if (left != null){
+      builder.append(left.toString());
+    }
+
+    return builder.toString();
+  }
+
+  private String addRightSubree(String str){
+    StringBuilder builder = new StringBuilder(str);
+
+    if (right != null){
+      builder.append(right.toString());
+    }
+
+    return builder.toString();
+  }
+
+  private String addClosingBracket(String str){
+    return str + ")";
+  }
 }

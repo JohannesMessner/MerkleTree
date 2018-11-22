@@ -4,8 +4,12 @@ public class MerkleTreeBuilder<V> {
 
   private MutableMerkleTree<V> tree;
 
-  MerkleTreeBuilder(){
+  public MerkleTreeBuilder(){
     this.tree = new MutableMerkleTree<>();
+  }
+
+  public MerkleTreeBuilder(int nuberOfLeaves){
+    this.tree = new MutableMerkleTree<>(nuberOfLeaves);
   }
 
   public MerkleTreeBuilder<V> push(V value){
@@ -31,7 +35,7 @@ public class MerkleTreeBuilder<V> {
   //ToDo
   @Override
   public String toString(){
-    return "";
+    return this.tree.toString();
   }
 
 }

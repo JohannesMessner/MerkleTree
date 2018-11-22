@@ -58,6 +58,14 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   @Override
   protected boolean push(V value) {
     this.setValue(value);
-    return false;
+    return true;
+  }
+
+  @Override
+  protected String addValue(String str){
+    if (this.value.isPresent()){
+      return str + "\"" + this.value.get().toString()+ "\"";
+    }
+    return str + "*";
   }
 }
