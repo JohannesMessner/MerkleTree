@@ -32,10 +32,13 @@ public class MerkleTreeBuilder<V> {
     tree.clear();
   }
 
-  //ToDo
   @Override
   public String toString(){
     return this.tree.toString();
+  }
+
+  public void setHash(int position, long hash){
+    tree.setHash(position, hash);
   }
 
 }
