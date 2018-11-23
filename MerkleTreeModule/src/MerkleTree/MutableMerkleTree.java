@@ -22,6 +22,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   MutableMerkleTree(int numberOfLeafs){
     numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
+    System.out.println("Leaves at creation: " +numberOfLeafs);
     this.root = new MerkleInnerNode<V>();
     this.numberOfLeafs = numberOfLeafs;
     createNodeStructure(numberOfLeafs, root);
@@ -35,19 +36,20 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param startingNode MerkleInnerNode<V> starting point of the node-creation
    */
   private void createNodeStructure(int numberOfLeafs, MerkleInnerNode<V> startingNode){
-    numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
+    //numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
     int treeDepth = log2(numberOfLeafs);
+    startingNode.createNodeStructure(treeDepth);
 
-    MerkleInnerNode<V> currentNode = startingNode;
-    for (int i = 0; i < treeDepth; i++){
-      if (i == treeDepth-1){
-        currentNode.setLeft(new MerkleLeaf<V>(currentNode));
-        currentNode.setRight(new MerkleLeaf<V>(currentNode));
-      }else{
-        currentNode.setLeft(new MerkleInnerNode<V>(currentNode));
-        currentNode.setRight(new MerkleInnerNode<V>(currentNode));
-      }
-    }
+//    MerkleInnerNode<V> currentNode = startingNode;
+//    for (int i = 0; i < treeDepth; i++){
+//      if (i == treeDepth-1){
+//        currentNode.setLeft(new MerkleLeaf<V>(currentNode));
+//        currentNode.setRight(new MerkleLeaf<V>(currentNode));
+//      }else{
+//        currentNode.setLeft(new MerkleInnerNode<V>(currentNode));
+//        currentNode.setRight(new MerkleInnerNode<V>(currentNode));
+//      }
+//    }
   }
 
   protected void expand(){
@@ -116,10 +118,10 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
 
     if (index % 2 == 0){
       currentPath.add(0, right);
-      calculatePathToNode((index - 2) / 2 , currentPath);
+      currentPath = calculatePathToNode((index - 2) / 2 , currentPath);
     }else{
       currentPath.add(0, left);
-      calculatePathToNode((index - 1) / 2 , currentPath);
+      currentPath = calculatePathToNode((index - 1) / 2 , currentPath);
     }
 
     return currentPath;
@@ -171,6 +173,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
 
   @Override
   public String toString(){
+    System.out.println(this.numberOfLeafs);
     return root.toString();
   }
 }

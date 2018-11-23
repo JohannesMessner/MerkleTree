@@ -20,7 +20,7 @@ abstract class MerkleNode<V> {
     this.parent = parent;
   }
 
-  public void setParent(MerkleNode<V> parent){
+  void setParent(MerkleNode<V> parent){
     if (this.parent == null) {
       this.parent = parent;
     }
@@ -119,15 +119,15 @@ abstract class MerkleNode<V> {
 
   @Override
   public String toString(){
-    String outpoutString = "";
-    outpoutString = addOpenBracket(outpoutString);
-    outpoutString = addValue(outpoutString);
-    outpoutString = addSpace(outpoutString);
-    outpoutString = addLeftSubtree(outpoutString);
-    outpoutString = addSpace(outpoutString);
-    outpoutString = addRightSubree(outpoutString);
-    outpoutString = addClosingBracket(outpoutString);
-    return outpoutString;
+    String outputString = "";
+    outputString = addOpenBracket(outputString);
+    outputString = addValue(outputString);
+    outputString = addSpace(outputString);
+    outputString = addLeftSubtree(outputString);
+    outputString = addSpace(outputString);
+    outputString = addRightSubree(outputString);
+    outputString = addClosingBracket(outputString);
+    return outputString;
   }
 
   private String addOpenBracket(String str){

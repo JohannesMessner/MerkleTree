@@ -51,4 +51,16 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
     }
     return  str + this.getStoredHash();
   }
+
+  void createNodeStructure(int treeDepth){
+    if (treeDepth > 1){
+      this.setLeft(new MerkleInnerNode<V>(this));
+      ((MerkleInnerNode<V>)this.getLeft()).createNodeStructure(treeDepth-1);
+      this.setRight(new MerkleInnerNode<V>(this));
+      ((MerkleInnerNode<V>)this.getRight()).createNodeStructure(treeDepth-1);
+    }else if(treeDepth == 1){
+      this.setLeft(new MerkleLeaf<V>(this));
+      this.setRight(new MerkleLeaf<V>(this));
+    }
+  }
 }

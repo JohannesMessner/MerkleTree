@@ -8,8 +8,8 @@ public class MerkleTreeBuilder<V> {
     this.tree = new MutableMerkleTree<>();
   }
 
-  public MerkleTreeBuilder(int nuberOfLeaves){
-    this.tree = new MutableMerkleTree<>(nuberOfLeaves);
+  public MerkleTreeBuilder(int numberOfLeaves){
+    this.tree = new MutableMerkleTree<>(numberOfLeaves);
   }
 
   public MerkleTreeBuilder<V> push(V value){
@@ -39,6 +39,11 @@ public class MerkleTreeBuilder<V> {
 
   public void setHash(int position, long hash){
     tree.setHash(position, hash);
+  }
+
+  //Testing only
+  public MerkleNode<V> search(int index){
+    return tree.search(index);
   }
 
 }
