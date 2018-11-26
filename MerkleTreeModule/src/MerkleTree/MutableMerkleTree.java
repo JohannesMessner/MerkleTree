@@ -90,15 +90,23 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     List<Boolean> pathToNode = calculatePathToNode(index);
     MerkleInnerNode<V> currentNode = startingNode;
 
+    int length = pathToNode.size();
+    int i = 0;
     for (Boolean direction : pathToNode){
-
+      i++;
       if (direction.equals(right) && currentNode.getRight() instanceof MerkleInnerNode) {
         currentNode = (MerkleInnerNode<V>) currentNode.getRight();
       }else if (direction.equals(right) && currentNode.getRight() instanceof  MerkleLeaf){
+        if (i < length){
+          throw new IndexOutOfBoundsException();
+        }
         return currentNode.getRight();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleInnerNode){
         currentNode = (MerkleInnerNode<V>) currentNode.getLeft();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleLeaf){
+        if (i < length){
+          throw new IndexOutOfBoundsException();
+        }
         return currentNode.getLeft();
       }
     }
@@ -150,6 +158,8 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     MerkleNode<V> targetNode = search(positon);
     if (targetNode instanceof MerkleLeaf){
       ((MerkleLeaf<V>) targetNode).setValue(value);
+    }else{
+      throw new IllegalArgumentException("Node ist not a Leaf-Node.");
     }
   }
 
@@ -187,6 +197,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   //ToDo
   @Override
   public List<Integer> getMissing() {
+    List<Integer> missingNodeIndices = new LinkedList<>();
     return null;
   }
 
@@ -197,7 +208,6 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   @Override
   public String toString(){
-    System.out.println(this.numberOfLeafs);
     return root.toString();
   }
 }
