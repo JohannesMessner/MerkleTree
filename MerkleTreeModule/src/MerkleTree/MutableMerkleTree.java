@@ -24,11 +24,9 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   MutableMerkleTree(int numberOfLeafs){
     numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
-    System.out.println("Leaves at creation: " +numberOfLeafs);
     this.root = new MerkleInnerNode<V>();
     this.numberOfLeafs = numberOfLeafs;
     createNodeStructure(numberOfLeafs, root);
-
   }
 
   /**

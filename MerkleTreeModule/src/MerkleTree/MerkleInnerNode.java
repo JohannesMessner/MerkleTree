@@ -78,6 +78,9 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
     }
   }
 
+  /**
+   * Recalculates the hashes of itself and all other Nodes above it.
+   */
   @Override
   protected void update(){
     if (!this.getRight().hasHash() || !this.getLeft().hasHash()){

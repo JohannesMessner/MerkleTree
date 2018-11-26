@@ -87,6 +87,10 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     return str + "*";
   }
 
+  /**
+   * Recalculates the hashes for itself and calls the parent's update-method.
+   *
+   */
   @Override
   protected void update(){
     setHash(calculateHash());
