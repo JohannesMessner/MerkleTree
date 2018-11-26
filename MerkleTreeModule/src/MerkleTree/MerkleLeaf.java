@@ -26,7 +26,7 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   /** Calculates the hash-code. */
   @Override
   protected long calculateHash(){
-    if (hasHash()) {
+    if (value.isPresent()) {
       return value.hashCode();
     }
     return 0;
