@@ -90,23 +90,15 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     List<Boolean> pathToNode = calculatePathToNode(index);
     MerkleInnerNode<V> currentNode = startingNode;
 
-    int length = pathToNode.size();
-    int i = 0;
     for (Boolean direction : pathToNode){
-      i++;
+
       if (direction.equals(right) && currentNode.getRight() instanceof MerkleInnerNode) {
         currentNode = (MerkleInnerNode<V>) currentNode.getRight();
       }else if (direction.equals(right) && currentNode.getRight() instanceof  MerkleLeaf){
-        if (i < length){
-          throw new IndexOutOfBoundsException();
-        }
         return currentNode.getRight();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleInnerNode){
         currentNode = (MerkleInnerNode<V>) currentNode.getLeft();
       }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleLeaf){
-        if (i < length){
-          throw new IndexOutOfBoundsException();
-        }
         return currentNode.getLeft();
       }
     }
@@ -136,6 +128,10 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     }else{
       currentPath.add(0, left);
       currentPath = calculatePathToNode((index - 1) / 2 , currentPath);
+    }
+
+    if (currentPath.size() > log2(this.numberOfLeafs)){
+      throw new IndexOutOfBoundsException();
     }
 
     return currentPath;

@@ -117,12 +117,12 @@
       <file leaf-file-name="MutableMerkleTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+            <state relative-caret-position="622">
+              <caret line="133" column="44" lean-forward="false" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5757#5758#0" expanded="true" />
-                <element signature="e#5789#5790#0" expanded="true" />
+                <element signature="e#5636#5637#0" expanded="true" />
+                <element signature="e#5668#5669#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -607,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543235711304</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Modified search() and setValue() to throw exceptions when needed.">
+      <created>1543239027706</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1543239027706</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -676,7 +683,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented MerkleNode" />
     <MESSAGE value="Added Constructors and addValue-Method to add a value to MerkleLeaf" />
     <MESSAGE value="Added package MerkleTree for all tree-related classes." />
     <MESSAGE value="Made all the node-classes package-private." />
@@ -701,7 +707,8 @@
     <MESSAGE value="Gave MerkleTreeBuilder a setHash()-Method." />
     <MESSAGE value="Fixed createNodeStructure(); was complete nonsense before" />
     <MESSAGE value="Commented a bunch of stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commented a bunch of stuff" />
+    <MESSAGE value="Modified search() and setValue() to throw exceptions when needed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified search() and setValue() to throw exceptions when needed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -754,8 +761,8 @@
           <caret line="153" column="31" lean-forward="true" selection-start-line="153" selection-start-column="31" selection-end-line="153" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5789#5790#0" expanded="true" />
+            <element signature="e#5636#5637#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -801,8 +808,8 @@
           <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5789#5790#0" expanded="true" />
+            <element signature="e#5636#5637#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -884,8 +891,8 @@
           <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5789#5790#0" expanded="true" />
+            <element signature="e#5636#5637#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -977,8 +984,8 @@
           <caret line="0" column="53" lean-forward="false" selection-start-line="0" selection-start-column="53" selection-end-line="0" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5789#5790#0" expanded="true" />
+            <element signature="e#5636#5637#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1132,12 +1139,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+        <state relative-caret-position="622">
+          <caret line="133" column="44" lean-forward="false" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5789#5790#0" expanded="true" />
+            <element signature="e#5636#5637#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
           </folding>
         </state>
       </provider>
