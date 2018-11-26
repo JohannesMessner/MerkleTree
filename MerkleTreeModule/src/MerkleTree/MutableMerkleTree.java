@@ -178,7 +178,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   }
 
   /**
-   * Determines if the tree's hashes are consistent among eacht other.
+   * Determines if the tree's hashes are consistent among each other.
    *
    * @return boolean indicating whether the tree's hashes are consistent
    */

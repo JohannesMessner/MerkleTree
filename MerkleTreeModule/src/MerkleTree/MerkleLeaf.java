@@ -26,7 +26,10 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   /** Calculates the hash-code. */
   @Override
   protected long calculateHash(){
-    return value.hashCode();
+    if (hasHash()) {
+      return value.hashCode();
+    }
+    return 0;
   }
 
   @Override
@@ -82,5 +85,14 @@ class MerkleLeaf<V> extends MerkleNode<V> {
       return str + "\"" + this.value.get().toString()+ "\"";
     }
     return str + "*";
+  }
+
+  @Override
+  protected void update(){
+    setHash(calculateHash());
+    if (getParent() == null){
+      return;
+    }
+    getParent().update();
   }
 }

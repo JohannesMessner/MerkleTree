@@ -61,20 +61,14 @@ abstract class MerkleNode<V> {
     hash = Optional.of(hashValue);
   }
 
-  MerkleNode<V> getParent(){
+  protected MerkleNode<V> getParent(){
     return parent;
   }
 
   /**
    * Recalculates the hash-code for itself and all nodes above itself.
    */
-  protected void update(){
-    setHash(calculateHash());
-    if (parent == null){
-      return;
-    }
-    parent.update();
-  }
+  protected abstract void update();
 
   /**
    * Abstract method to calculate the node's hash-code.

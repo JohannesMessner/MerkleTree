@@ -77,4 +77,16 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
       this.setRight(new MerkleLeaf<V>(this));
     }
   }
+
+  @Override
+  protected void update(){
+    if (!this.getRight().hasHash() || !this.getLeft().hasHash()){
+      return;
+    }
+    setHash(calculateHash());
+    if (getParent() == null){
+      return;
+    }
+    getParent().update();
+  }
 }
