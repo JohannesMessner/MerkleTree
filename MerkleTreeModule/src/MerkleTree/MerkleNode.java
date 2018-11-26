@@ -36,7 +36,7 @@ abstract class MerkleNode<V> {
   }
 
   /**
-   * Returns hash-code withoud recalculating it.
+   * Returns hash-code without recalculating it.
    *
    * @return long hash-code
    */
@@ -48,6 +48,11 @@ abstract class MerkleNode<V> {
     return 0;
   }
 
+  /**
+   * Return whether a hash-code is stored in the Node.
+   *
+   * @return boolean indicating whether hash-code is present.
+   */
   public boolean hasHash(){
     return hash.isPresent();
   }
@@ -60,6 +65,9 @@ abstract class MerkleNode<V> {
     return parent;
   }
 
+  /**
+   * Recalculates the hash-code for itself and all nodes above itself.
+   */
   protected void update(){
     setHash(calculateHash());
     if (parent == null){
@@ -85,6 +93,9 @@ abstract class MerkleNode<V> {
     return true;
   }
 
+  /**
+   * Deletes the stored hash-code.
+   */
   public void clear(){
     hash = Optional.empty();
   }
@@ -104,7 +115,7 @@ abstract class MerkleNode<V> {
    * @return boolean true, if value is inserted, false if list is too small
    */
   protected boolean push(V value){
-    if (this.getLeft() == null && this.getRight()==null){
+    if (this.getLeft() == null && this.getRight() == null){
       return false;
     }
 
@@ -117,6 +128,11 @@ abstract class MerkleNode<V> {
     return false;
   }
 
+  /**
+   * Returns a string-representation of the tree-structure below the Node.
+   *
+   * @return String represetning the tree-structure below the Node.
+   */
   @Override
   public String toString(){
     String outputString = "";

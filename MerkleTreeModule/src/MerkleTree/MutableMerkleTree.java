@@ -10,13 +10,15 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   private MerkleInnerNode<V> root;
   private int numberOfLeafs;
 
-
+  /**
+   * Constructor creating a tree with 2 leaves.
+   */
   MutableMerkleTree(){
     this(0);
   }
 
   /**
-   * Constructor creating enough nodes to accomodate a certain amount of list-items.
+   * Constructor creating enough Nodes to accomodate a certain amount of list-items.
    *
    * @param numberOfLeafs int representing the # of Leafs (= # of list items)
    */
@@ -39,19 +41,11 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     //numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
     int treeDepth = log2(numberOfLeafs);
     startingNode.createNodeStructure(treeDepth);
-
-//    MerkleInnerNode<V> currentNode = startingNode;
-//    for (int i = 0; i < treeDepth; i++){
-//      if (i == treeDepth-1){
-//        currentNode.setLeft(new MerkleLeaf<V>(currentNode));
-//        currentNode.setRight(new MerkleLeaf<V>(currentNode));
-//      }else{
-//        currentNode.setLeft(new MerkleInnerNode<V>(currentNode));
-//        currentNode.setRight(new MerkleInnerNode<V>(currentNode));
-//      }
-//    }
   }
 
+  /**
+   * Expands the tree to accomondate twice as many objects.
+   */
   protected void expand(){
     this.root.setParent(new MerkleInnerNode<V>());
     this.root.getParent().setLeft(this.root);
@@ -81,11 +75,18 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return n;
   }
 
+  /**
+   * Serches for a Node with a given Index.
+   * Indexing follows a breath-first approach.
+   *
+   * @param index Index of the wanted Node
+   * @return MerkleNode that has been found
+   */
   public MerkleNode<V> search(int index){
     return search(index, root);
   }
 
-  public MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode){
+  private MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode){
     List<Boolean> pathToNode = calculatePathToNode(index);
     MerkleInnerNode<V> currentNode = startingNode;
 
@@ -105,12 +106,17 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return currentNode;
   }
 
-
+  /**
+   * Calculates the path from the root-Node to a given Node.
+   *
+   * @param index Index of the target-Node
+   * @return LinkedList with information about the path to the target-Node.
+   */
   public LinkedList<Boolean> calculatePathToNode(int index){
     return calculatePathToNode(index, new LinkedList<Boolean>());
   }
 
-  public LinkedList<Boolean> calculatePathToNode(int index, LinkedList<Boolean> currentPath){
+  private LinkedList<Boolean> calculatePathToNode(int index, LinkedList<Boolean> currentPath){
 
     if (index == 0){
       return currentPath;
@@ -133,6 +139,12 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     search(position).setHash(hash);
   }
 
+  /**
+   * Sets a value for a Leaf with a given index.
+   *
+   * @param positon int index of the Leaf
+   * @param value V to be set in the Leaf
+   */
   @Override
   public void setValue(int positon, V value) {
     MerkleNode<V> targetNode = search(positon);
@@ -141,6 +153,9 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     }
   }
 
+  /**
+   * Clears the tree from all the hashes ans values.
+   */
   @Override
   public void clear() {
     root.clear();
@@ -156,7 +171,11 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return root.push(value);
   }
 
-  //ToDo
+  /**
+   * Determines if the tree's hashes are consistent among eacht other.
+   *
+   * @return boolean indicating whether the tree's hashes are consistent
+   */
   @Override
   public boolean isConsistent() {
     if (getMissing().isEmpty()){
@@ -171,6 +190,11 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return null;
   }
 
+  /**
+   * Returns a string-representation of the tree.
+   *
+   * @return String representing the tree.
+   */
   @Override
   public String toString(){
     System.out.println(this.numberOfLeafs);

@@ -3,6 +3,13 @@ public class Cuboid extends Body{
   private final int width;
   private final int height;
 
+  /**
+   * Constructor that sets length, width and height of the Cuboid.
+   *
+   * @param length length of the Cuboid
+   * @param width width of the Cuboid
+   * @param height height of the Cuboid
+   */
   public Cuboid(int length, int width, int height){
     this.height = height;
     this.length = length;

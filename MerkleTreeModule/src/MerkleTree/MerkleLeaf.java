@@ -49,18 +49,33 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     return null;
   }
 
+  /**
+   * Deletes the stored has-code and the stored value-object.
+   */
   @Override
   public void clear(){
     super.clear();
     value = Optional.empty();
   }
 
+  /**
+   * Sets the value of the Leaf.
+   *
+   * @param value V to be inserted
+   * @return boolean true that the value has been set.
+   */
   @Override
   protected boolean push(V value) {
     this.setValue(value);
     return true;
   }
 
+  /**
+   * Adds the value to the string-representation of the Node.
+   *
+   * @param str String the value will be added to.
+   * @return String with the value added to it.
+   */
   @Override
   protected String addValue(String str){
     if (this.value.isPresent()){
