@@ -182,7 +182,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   @Override
   public boolean isConsistent() {
-    if (getMissing().isEmpty()){
+    if (!getMissing().isEmpty()){
       return false;
     }
     return root.isConsistent();
@@ -192,7 +192,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   @Override
   public List<Integer> getMissing() {
     List<Integer> missingNodeIndices = new LinkedList<>();
-    return null;
+    return missingNodeIndices;
   }
 
   /**
