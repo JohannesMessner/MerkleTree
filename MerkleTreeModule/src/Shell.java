@@ -289,24 +289,30 @@ public class Shell {
   private static void handleDebug(){
     if (CURRENT_MODE == CHECK_MODE){
       System.out.println(tree.toString());
-    }else{
+    }else if (CURRENT_MODE == BUILD_MODE){
       System.out.println(builder.toString());
+    }else{
+      System.out.println(WRONG_MODE_ERROR);
     }
   }
 
   private static void handleClear(){
     if (CURRENT_MODE == CHECK_MODE){
       tree.clear();
-    }else{
+    }else if (CURRENT_MODE == BUILD_MODE){
       builder.clear();
+    }else {
+      System.out.println(WRONG_MODE_ERROR);
     }
   }
 
   private static void handleHelp(){
     if (CURRENT_MODE == CHECK_MODE){
       System.out.println(CHECK_HELP_MESSAGE);
-    }else {
+    }else if (CURRENT_MODE == BUILD_MODE){
       System.out.println(BUILD_HELP_MESSAGE);
+    }else {
+      System.out.println(WRONG_MODE_ERROR);
     }
   }
 

@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4587c8d8-db40-4328-8fe0-434847e89616" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,14 +21,14 @@
       <file leaf-file-name="Shell.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="4752">
+              <caret line="314" column="43" lean-forward="false" selection-start-line="314" selection-start-column="43" selection-end-line="314" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3663#3664#0" expanded="true" />
                 <element signature="e#3681#3682#0" expanded="true" />
-                <element signature="e#7697#7698#0" expanded="true" />
-                <element signature="e#7718#7719#0" expanded="true" />
+                <element signature="e#7959#7960#0" expanded="true" />
+                <element signature="e#7980#7981#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -689,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543337132083</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Shell should be about done.">
+      <created>1543414020106</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1543414020106</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -758,7 +764,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added comments to all node classes." />
     <MESSAGE value="Implemented update-function in MerkleNode." />
     <MESSAGE value="Implemented public methods in HashTree interface." />
     <MESSAGE value="Copied Override-Methods into MutableMerkleTree." />
@@ -783,7 +788,8 @@
     <MESSAGE value="Fixed bug in calculateHash() in MerkleLeaf" />
     <MESSAGE value="Implemented hashCode in class Body." />
     <MESSAGE value="Started Shell-implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Shell-implementation." />
+    <MESSAGE value="Shell should be about done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Shell should be about done." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -884,8 +890,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#3663#3664#0" expanded="true" />
             <element signature="e#3681#3682#0" expanded="true" />
-            <element signature="e#7697#7698#0" expanded="true" />
-            <element signature="e#7718#7719#0" expanded="true" />
+            <element signature="e#7959#7960#0" expanded="true" />
+            <element signature="e#7980#7981#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -988,8 +994,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#3663#3664#0" expanded="true" />
             <element signature="e#3681#3682#0" expanded="true" />
-            <element signature="e#7697#7698#0" expanded="true" />
-            <element signature="e#7718#7719#0" expanded="true" />
+            <element signature="e#7959#7960#0" expanded="true" />
+            <element signature="e#7980#7981#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1309,14 +1315,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="4752">
+          <caret line="314" column="43" lean-forward="false" selection-start-line="314" selection-start-column="43" selection-end-line="314" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3663#3664#0" expanded="true" />
             <element signature="e#3681#3682#0" expanded="true" />
-            <element signature="e#7697#7698#0" expanded="true" />
-            <element signature="e#7718#7719#0" expanded="true" />
+            <element signature="e#7959#7960#0" expanded="true" />
+            <element signature="e#7980#7981#0" expanded="true" />
           </folding>
         </state>
       </provider>
