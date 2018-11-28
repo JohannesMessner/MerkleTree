@@ -132,9 +132,9 @@ abstract class MerkleNode<V> {
     String outputString = "";
     outputString = addOpenBracket(outputString);
     outputString = addValue(outputString);
-    outputString = addSpace(outputString);
+    //outputString = addSpace(outputString);
     outputString = addLeftSubtree(outputString);
-    outputString = addSpace(outputString);
+    //outputString = addSpace(outputString);
     outputString = addRightSubree(outputString);
     outputString = addClosingBracket(outputString);
     return outputString;
@@ -147,7 +147,7 @@ abstract class MerkleNode<V> {
   protected abstract String addValue(String str);
 
   private String addSpace(String str){
-    return str + " ";
+    return str + "_";
   }
 
   private String addLeftSubtree(String str){
@@ -155,6 +155,7 @@ abstract class MerkleNode<V> {
 
     if (left != null){
       builder.append(left.toString());
+      builder.append(" ");
     }
 
     return builder.toString();

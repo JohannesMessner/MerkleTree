@@ -55,10 +55,10 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected String addValue(String str){
-    if (getStoredHash() == 0) {
-      return str + "*";
+    if (getStoredHash() == 0 || !hasHash()) {
+      return str + "* ";
     }
-    return  str + this.getStoredHash();
+    return  str + this.getStoredHash() + " ";
   }
 
   /**
