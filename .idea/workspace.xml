@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4587c8d8-db40-4328-8fe0-434847e89616" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,17 +21,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Shell.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Shell.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4752">
-              <caret line="314" column="43" lean-forward="false" selection-start-line="314" selection-start-column="43" selection-end-line="314" selection-end-column="43" />
+            <state relative-caret-position="270">
+              <caret line="43" column="50" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3663#3664#0" expanded="true" />
-                <element signature="e#3681#3682#0" expanded="true" />
-                <element signature="e#7959#7960#0" expanded="true" />
-                <element signature="e#7980#7981#0" expanded="true" />
+                <element signature="e#4027#4028#0" expanded="true" />
+                <element signature="e#4045#4046#0" expanded="true" />
+                <element signature="e#8406#8407#0" expanded="true" />
+                <element signature="e#8427#8428#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,16 +88,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MerkleNode.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MerkleNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+            <state relative-caret-position="274">
+              <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="39" />
               <folding>
-                <element signature="e#1253#1254#0" expanded="true" />
-                <element signature="e#1286#1287#0" expanded="true" />
-                <element signature="e#1329#1330#0" expanded="true" />
-                <element signature="e#1368#1369#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#830#831#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#1276#1277#0" expanded="true" />
+                <element signature="e#1309#1310#0" expanded="true" />
+                <element signature="e#1352#1353#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+                <element signature="e#1980#1981#0" expanded="true" />
+                <element signature="e#2013#2014#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,8 +111,8 @@
       <file leaf-file-name="MerkleLeaf.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+            <state relative-caret-position="621">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -114,8 +121,8 @@
       <file leaf-file-name="MerkleInnerNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="60" column="43" lean-forward="false" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
+            <state relative-caret-position="231">
+              <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
               <folding>
                 <element signature="e#511#512#0" expanded="true" />
                 <element signature="e#582#583#0" expanded="true" />
@@ -140,18 +147,20 @@
       <file leaf-file-name="MutableMerkleTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="194" column="30" lean-forward="false" selection-start-line="194" selection-start-column="30" selection-end-line="194" selection-end-column="30" />
+            <state relative-caret-position="420">
+              <caret line="200" column="7" lean-forward="true" selection-start-line="196" selection-start-column="6" selection-end-line="200" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2340#2341#0" expanded="true" />
                 <element signature="e#2376#2377#0" expanded="true" />
                 <element signature="e#4153#4154#0" expanded="true" />
                 <element signature="e#4193#4194#0" expanded="true" />
+                <element signature="e#4740#4741#0" expanded="true" />
+                <element signature="e#4762#4763#0" expanded="true" />
                 <element signature="e#4959#4960#0" expanded="true" />
                 <element signature="e#4992#4993#0" expanded="true" />
-                <element signature="e#5600#5601#0" expanded="true" />
-                <element signature="e#5632#5633#0" expanded="true" />
+                <element signature="e#5809#5810#0" expanded="true" />
+                <element signature="e#5841#5842#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,6 +196,8 @@
       <find>c</find>
       <find>leaves at</find>
       <find>getpa</find>
+      <find>is</find>
+      <find>current_mode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,18 +223,18 @@
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/UnmodifiableMerkleTree.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/Cuboid.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/Cylinder.java" />
-        <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/Body.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleTreeBuilder.java" />
-        <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" />
-        <option value="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java" />
+        <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" />
+        <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java" />
+        <option value="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="952" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -704,12 +715,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543414300500</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fixed toString().">
+      <created>1543420233407</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1543420233407</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -719,12 +736,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23642534" sideWeight="0.50322235" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23642534" sideWeight="0.49677765" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23642534" sideWeight="0.49677765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50555557" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1970999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.49785176" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -737,14 +755,13 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.49785176" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23642534" sideWeight="0.50322235" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -760,10 +777,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23677787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23642534" sideWeight="0.49677765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14428458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1970999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.49785176" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -773,7 +790,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented public methods in HashTree interface." />
     <MESSAGE value="Copied Override-Methods into MutableMerkleTree." />
     <MESSAGE value="Created inheritance UnmodifiableMerkleTreee -&gt; MutableMerkleTree" />
     <MESSAGE value="Implemented search-method in MutableMerkleTree; not tested yet" />
@@ -798,7 +814,8 @@
     <MESSAGE value="Started Shell-implementation." />
     <MESSAGE value="Shell should be about done." />
     <MESSAGE value="Fixed bug where calling certain commands before NEW would crash the program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where calling certain commands before NEW would crash the program" />
+    <MESSAGE value="Fixed toString()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed toString()." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -860,10 +877,12 @@
             <element signature="e#2376#2377#0" expanded="true" />
             <element signature="e#4153#4154#0" expanded="true" />
             <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+            <element signature="e#4762#4763#0" expanded="true" />
             <element signature="e#4959#4960#0" expanded="true" />
             <element signature="e#4992#4993#0" expanded="true" />
-            <element signature="e#5600#5601#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
+            <element signature="e#5841#5842#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -873,10 +892,15 @@
         <state relative-caret-position="2727">
           <caret line="117" column="3" lean-forward="true" selection-start-line="117" selection-start-column="3" selection-end-line="117" selection-end-column="3" />
           <folding>
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -898,10 +922,10 @@
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3663#3664#0" expanded="true" />
-            <element signature="e#3681#3682#0" expanded="true" />
-            <element signature="e#7959#7960#0" expanded="true" />
-            <element signature="e#7980#7981#0" expanded="true" />
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#4045#4046#0" expanded="true" />
+            <element signature="e#8406#8407#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -924,10 +948,12 @@
             <element signature="e#2376#2377#0" expanded="true" />
             <element signature="e#4153#4154#0" expanded="true" />
             <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+            <element signature="e#4762#4763#0" expanded="true" />
             <element signature="e#4959#4960#0" expanded="true" />
             <element signature="e#4992#4993#0" expanded="true" />
-            <element signature="e#5600#5601#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
+            <element signature="e#5841#5842#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -946,10 +972,15 @@
         <state relative-caret-position="1863">
           <caret line="77" column="28" lean-forward="false" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
           <folding>
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1003,10 +1034,10 @@
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3663#3664#0" expanded="true" />
-            <element signature="e#3681#3682#0" expanded="true" />
-            <element signature="e#7959#7960#0" expanded="true" />
-            <element signature="e#7980#7981#0" expanded="true" />
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#4045#4046#0" expanded="true" />
+            <element signature="e#8406#8407#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1029,10 +1060,12 @@
             <element signature="e#2376#2377#0" expanded="true" />
             <element signature="e#4153#4154#0" expanded="true" />
             <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+            <element signature="e#4762#4763#0" expanded="true" />
             <element signature="e#4959#4960#0" expanded="true" />
             <element signature="e#4992#4993#0" expanded="true" />
-            <element signature="e#5600#5601#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
+            <element signature="e#5841#5842#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1083,10 +1116,15 @@
         <state relative-caret-position="999">
           <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
           <folding>
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1138,10 +1176,12 @@
             <element signature="e#2376#2377#0" expanded="true" />
             <element signature="e#4153#4154#0" expanded="true" />
             <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+            <element signature="e#4762#4763#0" expanded="true" />
             <element signature="e#4959#4960#0" expanded="true" />
             <element signature="e#4992#4993#0" expanded="true" />
-            <element signature="e#5600#5601#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
+            <element signature="e#5841#5842#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1172,10 +1212,15 @@
         <state relative-caret-position="189">
           <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1279,48 +1324,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="194" column="30" lean-forward="false" selection-start-line="194" selection-start-column="30" selection-end-line="194" selection-end-column="30" />
+        <state relative-caret-position="420">
+          <caret line="200" column="7" lean-forward="true" selection-start-line="196" selection-start-column="6" selection-end-line="200" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2340#2341#0" expanded="true" />
             <element signature="e#2376#2377#0" expanded="true" />
             <element signature="e#4153#4154#0" expanded="true" />
             <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+            <element signature="e#4762#4763#0" expanded="true" />
             <element signature="e#4959#4960#0" expanded="true" />
             <element signature="e#4992#4993#0" expanded="true" />
-            <element signature="e#5600#5601#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
+            <element signature="e#5841#5842#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4752">
-          <caret line="314" column="43" lean-forward="false" selection-start-line="314" selection-start-column="43" selection-end-line="314" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3663#3664#0" expanded="true" />
-            <element signature="e#3681#3682#0" expanded="true" />
-            <element signature="e#7959#7960#0" expanded="true" />
-            <element signature="e#7980#7981#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="60" column="43" lean-forward="false" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
+        <state relative-caret-position="231">
+          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
             <element signature="e#511#512#0" expanded="true" />
             <element signature="e#582#583#0" expanded="true" />
@@ -1330,13 +1355,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+        <state relative-caret-position="274">
+          <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="39" />
           <folding>
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleLeaf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="43" column="50" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#4045#4046#0" expanded="true" />
+            <element signature="e#8406#8407#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
           </folding>
         </state>
       </provider>

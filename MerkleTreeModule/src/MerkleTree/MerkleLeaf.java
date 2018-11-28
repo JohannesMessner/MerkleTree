@@ -12,7 +12,7 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     this.value = Optional.empty();
   }
 
-  /** Alternative Constructor that also assigns a perent-node. */
+  /** Alternative Constructor that also assigns a parent-node. */
   MerkleLeaf(MerkleInnerNode<V> parent){
     super(parent);
     this.value = Optional.empty();
@@ -33,12 +33,12 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   }
 
   @Override
-  protected boolean setLeft(MerkleNode left) {
+  protected boolean setLeft(MerkleNode<V> left) {
     return false;
   }
 
   @Override
-  protected boolean setRight(MerkleNode right) {
+  protected boolean setRight(MerkleNode<V> right) {
     return false;
   }
 
@@ -99,4 +99,12 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     }
     getParent().update();
   }
+
+  @Override
+  protected void setHash(long hashValue) {
+    if (!value.isPresent()){
+      super.setHash(hashValue);
+    }
+  }
+
 }

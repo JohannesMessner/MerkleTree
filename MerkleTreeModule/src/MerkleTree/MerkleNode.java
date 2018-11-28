@@ -1,5 +1,6 @@
 package MerkleTree;
 
+import java.util.List;
 import java.util.Optional;
 
 abstract class MerkleNode<V> {
@@ -147,7 +148,7 @@ abstract class MerkleNode<V> {
   protected abstract String addValue(String str);
 
   private String addSpace(String str){
-    return str + "_";
+    return str + " ";
   }
 
   private String addLeftSubtree(String str){
@@ -174,4 +175,10 @@ abstract class MerkleNode<V> {
   private String addClosingBracket(String str){
     return str + ")";
   }
+
+//  List<Integer> getMissing(List<Integer> currentlyMissing){
+//    if (getParent() != null){
+//      if (!getParent().hasHash() && ( getParent().getLeft().hasHash() )
+//    }
+//  }
 }

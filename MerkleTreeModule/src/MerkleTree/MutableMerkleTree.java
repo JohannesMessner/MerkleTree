@@ -192,6 +192,13 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   @Override
   public List<Integer> getMissing() {
     List<Integer> missingNodeIndices = new LinkedList<>();
+    MerkleNode<V> currentNode = root;
+
+//    while (currentNode.getLeft() != null && currentNode.getRight() != null){
+//      if (currentNode.getParent() != null){
+//        if(currentNode.)
+//      }
+//    }
     return missingNodeIndices;
   }
 

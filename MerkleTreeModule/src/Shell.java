@@ -17,10 +17,12 @@ public class Shell {
   private static MutableMerkleTree<Body> tree;
 
   private static String PROMPT = "merkle> ";
-  private static boolean CURRENT_MODE;
+  private static int CURRENT_MODE;
   private static boolean QUIT = false;
-  private static final boolean BUILD_MODE = true;
-  private static final boolean CHECK_MODE = false;
+  private static long ROOT_HASH = 0;
+  private static final int START_MODE = 0;
+  private static final int BUILD_MODE = 1;
+  private static final int CHECK_MODE = 2;
 
   private static final String CUBOID_REGEX = "Cuboid[(](\\d+),(\\d+),(\\d+)[)]";
   private static final String CYLINDER_REGEX = "Cylinder[(]\\d+,\\d+[)]";
@@ -39,6 +41,7 @@ public class Shell {
   private static final String CHEK_NOT_PASSED_MESSAGE = "REJ";
   private static final String CHECK_HELP_MESSAGE = "Help-message goes here";
   private static final String BUILD_HELP_MESSAGE = "Help-message goes here";
+  private static final String GENERAL_HELP_MESSAGE = "Help-message goes here";
 
   /**
    *
@@ -75,46 +78,57 @@ public class Shell {
     int commandID = getCommandID(command);
     switch (command){
       case "NEW":
+      case "new":
         handleNew(sc);
         break;
 
       case "PUSH":
+      case "push":
         handlePush(sc);
         break;
 
       case "NEW_CHECK":
+      case "new_check":
         handleNewCheck(sc);
         break;
 
       case "SET_VAL":
+      case "set_val":
         handleSetVal(sc);
         break;
 
       case "SET_HASH":
-        handeleSetHash(sc);
+      case "set_hash":
+        handleSetHash(sc);
         break;
 
       case "READY?":
+      case "ready?":
         handleReady();
         break;
 
       case "CHECK":
+      case "check":
         handleCheck();
         break;
 
       case "CLEAR":
+      case "clear":
         handleClear();
         break;
 
       case "DEBUG":
+      case "debug":
         handleDebug();
         break;
 
       case "HELP":
+      case "help":
         handleHelp();
         break;
 
       case "QUIT":
+      case "quit":
         handleQuit();
         break;
 
@@ -195,6 +209,7 @@ public class Shell {
       return;
     }
     tree = new MutableMerkleTree<Body>(treeSize);
+    ROOT_HASH = hash;
     tree.setHash(0, hash);
   }
 
@@ -230,7 +245,7 @@ public class Shell {
     }
   }
 
-  private static void handeleSetHash(Scanner sc){
+  private static void handleSetHash(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
       System.out.println(WRONG_MODE_ERROR);
       return;
@@ -253,6 +268,7 @@ public class Shell {
 
     try{
       tree.setHash(position, hash);
+      ROOT_HASH = hash;
     }catch (IndexOutOfBoundsException e){
       System.out.println(NO_VALID_POSITION_ERROR);
     }
@@ -299,6 +315,7 @@ public class Shell {
   private static void handleClear(){
     if (CURRENT_MODE == CHECK_MODE){
       tree.clear();
+      tree.setHash(0, ROOT_HASH);
     }else if (CURRENT_MODE == BUILD_MODE){
       builder.clear();
     }else {
@@ -312,7 +329,7 @@ public class Shell {
     }else if (CURRENT_MODE == BUILD_MODE){
       System.out.println(BUILD_HELP_MESSAGE);
     }else {
-      System.out.println(WRONG_MODE_ERROR);
+      System.out.println(GENERAL_HELP_MESSAGE);
     }
   }
 
@@ -330,9 +347,9 @@ public class Shell {
     return strbuilder.toString();
   }
 
-  private static void setMode(boolean mode){
+  private static void setMode(int mode){
     CURRENT_MODE = mode;
-    if (mode){
+    if (mode == BUILD_MODE){
       PROMPT = "build> ";
     }else {
       PROMPT = "check> ";
