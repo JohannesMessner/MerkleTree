@@ -240,7 +240,7 @@ public class Shell {
 
     try{
       tree.setValue(position, value);
-    }catch (IndexOutOfBoundsException e){
+    }catch (IllegalArgumentException e){
       System.out.println(NO_VALID_POSITION_ERROR);
     }
   }
@@ -339,10 +339,13 @@ public class Shell {
 
   private static String toIndexString(List<Integer> indices){
     StringBuilder strbuilder = new StringBuilder("[");
+    int j = 0;
     for (Integer i : indices){
+      j++;
       strbuilder.append(i);
       strbuilder.append(",");
     }
+    strbuilder.deleteCharAt(2*j);
     strbuilder.append("]");
     return strbuilder.toString();
   }

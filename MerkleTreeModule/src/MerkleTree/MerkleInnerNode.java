@@ -1,5 +1,6 @@
 package MerkleTree;
 
+import java.util.List;
 import java.util.Optional;
 
 class MerkleInnerNode<V> extends MerkleNode<V> {
@@ -44,6 +45,9 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected boolean isConsistent(){
+    if (!getLeft().hasHash() && !getRight().hasHash()){
+      return true;
+    }
     return super.isConsistent() && getLeft().isConsistent() && getRight().isConsistent();
   }
 
@@ -92,4 +96,19 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
     }
     getParent().update();
   }
+
+  @Override
+  List<Integer> getMissing(List<Integer> currentlyMissing, int index) {
+    if (!getRight().hasHash() & !getLeft().hasHash() & (getLeft().getMissing(currentlyMissing, 2*index +1).size() > currentlyMissing.size()) & (getRight().getMissing(currentlyMissing, 2*index +2).size() > currentlyMissing.size()) & !hasHash()){
+      currentlyMissing.add(index);
+      return currentlyMissing;
+    }else {
+      return currentlyMissing;
+    }
+  }
+
+//  @Override
+//  boolean isMissing(){
+//    return
+//  }
 }

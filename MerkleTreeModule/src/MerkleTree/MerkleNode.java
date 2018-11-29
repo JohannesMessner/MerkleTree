@@ -176,6 +176,10 @@ abstract class MerkleNode<V> {
     return str + ")";
   }
 
+  abstract List<Integer> getMissing(List<Integer> currentlyMissing, int index);
+
+  //abstract boolean isMissing();
+
 //  List<Integer> getMissing(List<Integer> currentlyMissing){
 //    if (getParent() != null){
 //      if (!getParent().hasHash() && ( getParent().getLeft().hasHash() )

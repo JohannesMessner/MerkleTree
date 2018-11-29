@@ -1,5 +1,6 @@
 package MerkleTree;
 
+import java.util.List;
 import java.util.Optional;
 
 class MerkleLeaf<V> extends MerkleNode<V> {
@@ -101,10 +102,21 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   }
 
   @Override
-  protected void setHash(long hashValue) {
-    if (!value.isPresent()){
-      super.setHash(hashValue);
+  List<Integer> getMissing(List<Integer> currentlyMissing, int index) {
+    boolean siblingHasHash = (getParent().getLeft().hasHash() && !getParent().getRight().hasHash()) || (!getParent().getLeft().hasHash() && getParent().getRight().hasHash());
+    if (!hasHash() && siblingHasHash){
+      currentlyMissing.add(index);
+      return currentlyMissing;
+    }else {
+      return currentlyMissing;
     }
   }
+
+  //  @Override
+//  protected void setHash(long hashValue) {
+//    if (!value.isPresent()){
+//      super.setHash(hashValue);
+//    }
+//  }
 
 }

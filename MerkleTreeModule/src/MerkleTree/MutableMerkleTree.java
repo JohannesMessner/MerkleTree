@@ -1,5 +1,6 @@
 package MerkleTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -191,15 +192,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   //ToDo
   @Override
   public List<Integer> getMissing() {
-    List<Integer> missingNodeIndices = new LinkedList<>();
-    MerkleNode<V> currentNode = root;
-
-//    while (currentNode.getLeft() != null && currentNode.getRight() != null){
-//      if (currentNode.getParent() != null){
-//        if(currentNode.)
-//      }
-//    }
-    return missingNodeIndices;
+    return root.getMissing(new ArrayList<Integer>(), 0);
   }
 
   /**
