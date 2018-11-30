@@ -150,7 +150,8 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   @Override
   public void setValue(int positon, V value) {
-    MerkleNode<V> targetNode = search(positon);
+    int BFSindex = toBFSindex(positon);
+    MerkleNode<V> targetNode = search(BFSindex);
     if (targetNode instanceof MerkleLeaf){
       ((MerkleLeaf<V>) targetNode).setValue(value);
     }else{
@@ -158,6 +159,9 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     }
   }
 
+  private int toBFSindex(int leafPositon){
+    return this.numberOfLeafs - 1 + leafPositon;
+  }
   /**
    * Clears the tree from all the hashes ans values.
    */

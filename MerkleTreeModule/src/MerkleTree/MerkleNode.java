@@ -192,7 +192,7 @@ abstract class MerkleNode<V> {
   private boolean siblingHasHashesUnderneath(int index){
     MerkleNode<V> sibling;
     if (parent != null){
-      if (index % 2 == 1){
+      if (index % 2 != 0){
         sibling = parent.getRight();
       }else {
         sibling = parent.getLeft();
