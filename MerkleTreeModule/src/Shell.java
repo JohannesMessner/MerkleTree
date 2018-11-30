@@ -40,6 +40,7 @@ public class Shell {
   private static final String NO_HASH_ERROR = "Error! You need to specify a hash-value";
   private static final String NO_POSITION_ERROR = "Error! You need to specify a postion in the tree";
   private static final String NO_VALID_POSITION_ERROR = "Error! The specified position is not in the tree";
+  private static final String NOT_READY_ERROR = "Error! The tree is not ready for the check";
   private static final String READY_MESSAGE = "READY!";
   private static final String CHEK_PASSED_MESSAGE = "ACK";
   private static final String CHEK_NOT_PASSED_MESSAGE = "REJ";
@@ -303,7 +304,9 @@ public class Shell {
       System.out.println(WRONG_MODE_ERROR);
       return;
     }
-
+    if (!tree.getMissing().isEmpty()){
+      System.out.println(NOT_READY_ERROR);
+    }
     boolean isConsistent = tree.isConsistent();
     if (isConsistent){
       System.out.println(CHEK_PASSED_MESSAGE);
