@@ -4,6 +4,7 @@ import MerkleTree.MutableMerkleTree;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -338,14 +339,13 @@ public class Shell {
   }
 
   private static String toIndexString(List<Integer> indices){
+    Collections.reverse(indices);
     StringBuilder strbuilder = new StringBuilder("[");
-    int j = 0;
     for (Integer i : indices){
-      j++;
       strbuilder.append(i);
       strbuilder.append(",");
     }
-    strbuilder.deleteCharAt(2*j);
+    strbuilder.deleteCharAt(strbuilder.toString().length() - 1);
     strbuilder.append("]");
     return strbuilder.toString();
   }

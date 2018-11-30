@@ -176,7 +176,65 @@ abstract class MerkleNode<V> {
     return str + ")";
   }
 
-  abstract List<Integer> getMissing(List<Integer> currentlyMissing, int index);
+  List<Integer> getMissing(List<Integer> currentlyMissing, int index){
+    if (hasNoHashesUnderneath() && !hasHash() && siblingHasHashesUnderneath(index)){
+      currentlyMissing.add(index);
+      return currentlyMissing;
+    }else{
+      if (getRight() != null && getLeft() != null) {
+        getLeft().getMissing(currentlyMissing, 2 * index + 1);
+        getRight().getMissing(currentlyMissing, 2 * index + 2);
+      }
+      return currentlyMissing;
+    }
+  }
+
+  private boolean siblingHasHashesUnderneath(int index){
+    MerkleNode<V> sibling;
+    if (parent != null){
+      if (index % 2 == 1){
+        sibling = parent.getRight();
+      }else {
+        sibling = parent.getLeft();
+      }
+    }else{
+      return true;
+    }
+    return !sibling.hasNoHashesUnderneath() || sibling.hasHash();
+  }
+
+  private boolean hasNoHashesUnderneath(){
+    if (getLeft() == null || getRight() == null){
+      return true;
+    }
+    if (left.hasHash() || right.hasHash()){
+      return false;
+    }
+    return left.hasNoHashesUnderneath() && right.hasNoHashesUnderneath();
+  }
+
+//  void addIndices(List<Integer> currentlyMissing, int index){
+//    if (parent == null){
+//      return;
+//    }
+//    MerkleNode<V> sibling;
+//    int parentIndex;
+//    if (index % 2 == 0){
+//      parentIndex = (index - 2)/2;
+//      sibling = parent.getLeft();
+//      if (!sibling.getLeft().hasHash() && !sibling.getRight().hasHash()){
+//        currentlyMissing.add(index - 1);
+//      }
+//    }else {
+//      parentIndex = (index - 1)/2;
+//      sibling = parent.getRight();
+//      boolean siblingCantBeCalculated =
+//      if (siblingCantBeCalculated){
+//        currentlyMissing.add(index + 1);
+//      }
+//    }
+//    parent.addIndices(currentlyMissing, parentIndex);
+//  }
 
   //abstract boolean isMissing();
 
