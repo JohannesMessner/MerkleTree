@@ -11,12 +11,12 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   private MerkleInnerNode<V> root;
   private int numberOfLeafs;
 
-  /**
-   * Constructor creating a tree with 2 leaves.
-   */
-  public MutableMerkleTree(){
-    this(0);
-  }
+//  /**
+//   * Constructor creating a tree with 2 leaves.
+//   */
+//  public MutableMerkleTree(){
+//    this(0);
+//  }
 
   /**
    * Constructor creating enough Nodes to accomodate a certain amount of list-items.
@@ -24,6 +24,9 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param numberOfLeafs int representing the # of Leafs (= # of list items)
    */
   public MutableMerkleTree(int numberOfLeafs){
+    if (numberOfLeafs < 2){
+      throw new IllegalArgumentException();
+    }
     numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
     this.root = new MerkleInnerNode<V>();
     this.numberOfLeafs = numberOfLeafs;

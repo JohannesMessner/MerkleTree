@@ -20,7 +20,9 @@ public class Shell {
   private static String PROMPT = "merkle> ";
   private static int CURRENT_MODE;
   private static boolean QUIT = false;
-  private static long ROOT_HASH = 0;
+  private static long ROOT_HASH = 0; //Value gets set whenever check-mode is entered,
+                                     // so the value 0 is not relevant,
+                                     // though required by the compiler
   private static final int START_MODE = 0;
   private static final int BUILD_MODE = 1;
   private static final int CHECK_MODE = 2;
@@ -31,6 +33,7 @@ public class Shell {
 
   private static final String INVALID_COMMAND_ERROR = "Error! Not a valid command.";
   private static final String NO_SIZE_ERROR = "Error! You need to specify a tree-size";
+  private static final String NO_VALID_SIZE_ERROR = "Error! You need to specify a valid tree-size";
   private static final String WRONG_MODE_ERROR = "Error! This action cannot be performed in this mode";
   private static final String NO_VALUE_ERROR = "Error! You need to specify a value";
   private static final String NO_VALID_VALUE_ERROR = "Error! The specified value is not valid";
@@ -142,8 +145,12 @@ public class Shell {
   private static void handleNew(Scanner sc){
 
     if (sc.hasNextInt()){
-      builder = new MerkleTreeBuilder<Body>( sc.nextInt());
-      setMode(BUILD_MODE);
+      try {
+        builder = new MerkleTreeBuilder<Body>(sc.nextInt());
+        setMode(BUILD_MODE);
+      } catch (IllegalArgumentException e){
+        System.out.println(NO_VALID_SIZE_ERROR);
+      }
     }else{
       System.out.println(NO_SIZE_ERROR);
     }
@@ -240,7 +247,9 @@ public class Shell {
     }
 
     try{
+      long rootHash = ROOT_HASH;
       tree.setValue(position, value);
+      tree.setHash(0, rootHash);
     }catch (IllegalArgumentException e){
       System.out.println(NO_VALID_POSITION_ERROR);
     }
