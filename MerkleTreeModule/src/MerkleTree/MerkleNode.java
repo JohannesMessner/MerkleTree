@@ -177,8 +177,8 @@ abstract class MerkleNode<V> {
   }
 
   List<Integer> getMissing(List<Integer> currentlyMissing, int index){
-    boolean parentIsRoot = parent.getParent() == null;
-    if (hasNoHashesUnderneath() && !hasHash() && (siblingHasHashesUnderneath(index) || parentIsRoot)){
+
+    if (hasNoHashesUnderneath() && !hasHash() && (siblingHasHashesUnderneath(index) || parentIsRoot())){
       currentlyMissing.add(index);
       return currentlyMissing;
     }else{
@@ -187,6 +187,15 @@ abstract class MerkleNode<V> {
         getRight().getMissing(currentlyMissing, 2 * index + 2);
       }
       return currentlyMissing;
+    }
+  }
+
+  private boolean parentIsRoot(){
+
+    if (parent == null){
+      return false;
+    }else {
+      return parent.getParent() == null;
     }
   }
 

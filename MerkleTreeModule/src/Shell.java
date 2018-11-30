@@ -306,6 +306,7 @@ public class Shell {
     }
     if (!tree.getMissing().isEmpty()){
       System.out.println(NOT_READY_ERROR);
+      return;
     }
     boolean isConsistent = tree.isConsistent();
     if (isConsistent){
@@ -351,7 +352,7 @@ public class Shell {
   }
 
   private static String toIndexString(List<Integer> indices){
-    Collections.reverse(indices);
+    Collections.sort(indices);
     StringBuilder strbuilder = new StringBuilder("[");
     for (Integer i : indices){
       strbuilder.append(i);
