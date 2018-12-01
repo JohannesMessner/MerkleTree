@@ -21,6 +21,6 @@ public class Cuboid extends Body {
 
   @Override
   public String toString() {
-    return "Bodies.Cuboid(" + this.length + "," + this.width + "," + this.height + ")";
+    return "Cuboid(" + this.length + "," + this.width + "," + this.height + ")";
   }
 }

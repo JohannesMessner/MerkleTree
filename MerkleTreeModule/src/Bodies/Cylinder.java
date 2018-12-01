@@ -19,6 +19,6 @@ public class Cylinder extends Body {
 
   @Override
   public String toString() {
-    return "Bodies.Cylinder(" + this.radius + "," + this.height + ")";
+    return "Cylinder(" + this.radius + "," + this.height + ")";
   }
 }
