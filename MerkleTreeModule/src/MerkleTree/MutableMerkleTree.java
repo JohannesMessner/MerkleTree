@@ -14,9 +14,9 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   /**
    * Constructor creating a tree with 2 leaves.
    */
-  public MutableMerkleTree(){
-    throw new IllegalArgumentException();
-  }
+//  public MutableMerkleTree(){
+//    throw new IllegalArgumentException();
+//  }
 
   /**
    * Constructor creating enough Nodes to accomodate a certain amount of list-items.
@@ -84,7 +84,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param index Index of the wanted Node
    * @return MerkleNode that has been found
    */
-  public MerkleNode<V> search(int index){
+  MerkleNode<V> search(int index){
     return search(index, root);
   }
 
@@ -114,7 +114,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param index Index of the target-Node
    * @return LinkedList with information about the path to the target-Node.
    */
-  public LinkedList<Boolean> calculatePathToNode(int index){
+  private LinkedList<Boolean> calculatePathToNode(int index){
     return calculatePathToNode(index, new LinkedList<Boolean>());
   }
 
@@ -179,7 +179,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param value V to be inserted
    * @return boolean true, if value is inserted, false if list is too small
    */
-  protected boolean push(V value){
+  boolean push(V value){
     return root.push(value);
   }
 
@@ -196,7 +196,6 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return root.isConsistent();
   }
 
-  //ToDo
   @Override
   public List<Integer> getMissing() {
     return root.getMissing(new ArrayList<Integer>(), 0);

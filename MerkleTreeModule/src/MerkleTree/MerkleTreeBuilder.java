@@ -4,9 +4,9 @@ public class MerkleTreeBuilder<V> {
 
   private MutableMerkleTree<V> tree;
 
-  public MerkleTreeBuilder(){
-    this.tree = new MutableMerkleTree<>();
-  }
+//  public MerkleTreeBuilder(){
+//    this.tree = new MutableMerkleTree<>();
+//  }
 
   public MerkleTreeBuilder(int numberOfLeaves){
     this.tree = new MutableMerkleTree<>(numberOfLeaves);
