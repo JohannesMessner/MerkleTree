@@ -40,7 +40,7 @@ public class MerkleTreeBuilder<V> {
    * @return UnmodifiableMerkleTree equivalent to the mutable tree
    */
   public Hashtree<V> build(){
-    return tree;
+    return new UnmodifiableMerkleTree<>(tree);
   }
 
   /**

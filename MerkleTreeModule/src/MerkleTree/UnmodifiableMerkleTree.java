@@ -13,7 +13,7 @@ public class UnmodifiableMerkleTree<V> implements Hashtree<V> {
   }
 
   @Override
-  public void setValue(int positon, V value) {
+  public void setValue(int position, V value) {
     throw new UnsupportedOperationException("This tree is unmodifiable");
   }
 
