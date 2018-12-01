@@ -41,6 +41,7 @@ public class Shell {
   private static final String NO_POSITION_ERROR = "Error! You need to specify a postion in the tree";
   private static final String NO_VALID_POSITION_ERROR = "Error! The specified position is not in the tree";
   private static final String NOT_READY_ERROR = "Error! The tree is not ready for the check";
+  private static final String TOO_MANY_ARGUMENTS_ERROR = "Error! You specified too many arguments";
   private static final String READY_MESSAGE = "READY!";
   private static final String CHEK_PASSED_MESSAGE = "ACK";
   private static final String CHEK_NOT_PASSED_MESSAGE = "REJ";
@@ -80,7 +81,6 @@ public class Shell {
     }
 
 
-    int commandID = getCommandID(command);
     switch (command){
       case "NEW":
       case "new":
@@ -109,27 +109,27 @@ public class Shell {
 
       case "READY?":
       case "ready?":
-        handleReady();
+        handleReady(sc);
         break;
 
       case "CHECK":
       case "check":
-        handleCheck();
+        handleCheck(sc);
         break;
 
       case "CLEAR":
       case "clear":
-        handleClear();
+        handleClear(sc);
         break;
 
       case "DEBUG":
       case "debug":
-        handleDebug();
+        handleDebug(sc);
         break;
 
       case "HELP":
       case "help":
-        handleHelp();
+        handleHelp(sc);
         break;
 
       case "QUIT":
@@ -145,19 +145,24 @@ public class Shell {
 
   private static void handleNew(Scanner sc){
 
+    int treeSize = 0;
     if (sc.hasNextInt()){
-      try {
-        builder = new MerkleTreeBuilder<Body>(sc.nextInt());
-        setMode(BUILD_MODE);
-      } catch (IllegalArgumentException e){
-        System.out.println(NO_VALID_SIZE_ERROR);
-      }
+      treeSize = sc.nextInt();
     }else{
       System.out.println(NO_SIZE_ERROR);
+      return;
     }
-  }
-  private static int getCommandID(String command){
-    return 1;
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
+
+    try {
+      builder = new MerkleTreeBuilder<Body>(treeSize);
+      setMode(BUILD_MODE);
+    } catch (IllegalArgumentException e){
+      System.out.println(NO_VALID_SIZE_ERROR);
+    }
   }
 
   private static void handlePush(Scanner sc){
@@ -166,15 +171,21 @@ public class Shell {
       return;
     }
 
+    Body bdy = null;
     if(sc.hasNext()){
-      Body bdy = getBody(sc.next());
-      if (bdy != null) {
-        builder.push(bdy);
-      }else{
-        System.out.println(NO_VALID_VALUE_ERROR);
-      }
+      bdy = getBody(sc.next());
     }else {
       System.out.println(NO_VALUE_ERROR);
+    }
+    if(sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
+
+    if (bdy != null) {
+      builder.push(bdy);
+    }else{
+      System.out.println(NO_VALID_VALUE_ERROR);
     }
   }
 
@@ -210,13 +221,17 @@ public class Shell {
       System.out.println(NO_SIZE_ERROR);
       return;
     }
-
     if (sc.hasNextLong()){
       hash = sc.nextLong();
     }else {
       System.out.println(NO_HASH_ERROR);
       return;
     }
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
+
     tree = new MutableMerkleTree<Body>(treeSize);
     ROOT_HASH = hash;
     tree.setHash(0, hash);
@@ -276,6 +291,10 @@ public class Shell {
       System.out.println(NO_HASH_ERROR);
       return;
     }
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
 
     try{
       tree.setHash(position, hash);
@@ -285,9 +304,13 @@ public class Shell {
     }
   }
 
-  private static void handleReady(){
+  private static void handleReady(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
       System.out.println(WRONG_MODE_ERROR);
+      return;
+    }
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
       return;
     }
 
@@ -299,9 +322,13 @@ public class Shell {
     }
   }
 
-  private static void handleCheck(){
+  private static void handleCheck(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
       System.out.println(WRONG_MODE_ERROR);
+      return;
+    }
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
       return;
     }
     if (!tree.getMissing().isEmpty()){
@@ -316,7 +343,11 @@ public class Shell {
     }
   }
 
-  private static void handleDebug(){
+  private static void handleDebug(Scanner sc){
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
     if (CURRENT_MODE == CHECK_MODE){
       System.out.println(tree.toString());
     }else if (CURRENT_MODE == BUILD_MODE){
@@ -326,7 +357,11 @@ public class Shell {
     }
   }
 
-  private static void handleClear(){
+  private static void handleClear(Scanner sc){
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
     if (CURRENT_MODE == CHECK_MODE){
       tree.clear();
       tree.setHash(0, ROOT_HASH);
@@ -337,7 +372,11 @@ public class Shell {
     }
   }
 
-  private static void handleHelp(){
+  private static void handleHelp(Scanner sc){
+    if (sc.hasNext()){
+      System.out.println(TOO_MANY_ARGUMENTS_ERROR);
+      return;
+    }
     if (CURRENT_MODE == CHECK_MODE){
       System.out.println(CHECK_HELP_MESSAGE);
     }else if (CURRENT_MODE == BUILD_MODE){
