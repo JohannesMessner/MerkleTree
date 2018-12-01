@@ -45,9 +45,30 @@ public class Shell {
   private static final String READY_MESSAGE = "READY!";
   private static final String CHEK_PASSED_MESSAGE = "ACK";
   private static final String CHEK_NOT_PASSED_MESSAGE = "REJ";
-  private static final String CHECK_HELP_MESSAGE = "Help-message goes here";
-  private static final String BUILD_HELP_MESSAGE = "Help-message goes here";
-  private static final String GENERAL_HELP_MESSAGE = "Help-message goes here";
+  private static final String CHECK_HELP_MESSAGE = "You are currently in check-mode.\n" +
+          "You cane use the following commands:\n\n" +
+          "'NEW_CHECK n h': creates a new tree with n leaves and a root-hash of h\n" +
+          "'SET_VAL p v': sets a value v for a leaf at position p\n" +
+          "'SET_HASH p h': sets a hash h for a node at index p\n" +
+          "'READY?': tells you if the tree is ready for a consistency-check, or which nodes are still missing\n" +
+          "'CHECK': checks the tree for consistency\n" +
+          "'CLEAR:' deletes all values and hashes\n" +
+          "'DEBUG': prints a string-representation of the tree\n" +
+          "'HELP': prints this message\n" +
+          "'QUIT': quits the program";
+  private static final String BUILD_HELP_MESSAGE = "You are currently in build-mode.\n" +
+          "You cane use the following commands:\n\n" +
+          "'NEW: n ': creates a new tree with n leaves\n" +
+          "'PUSH v': adds a value v to the tree\n" +
+          "'CLEAR:' deletes all values and hashes\n" +
+          "'DEBUG': prints a string-representation of the tree\n" +
+          "'HELP': prints this message\n" +
+          "'QUIT': quits the program";
+  private static final String GENERAL_HELP_MESSAGE = "You are currently in merkle-mode.\n" +
+          "This application allows you to build merkle-trees or to check trees for their consistency.\n\n" +
+          "You can use the following command:\n\n" +
+          "'NEW: n ': launches build-mode with a new tree with n leaves\n" +
+          "'NEW_CHECK n h': launches check-mode with a new tree with n leaves and a root-hash of h\n";
 
   /**
    *
@@ -212,7 +233,6 @@ public class Shell {
   }
 
   private static void handleNewCheck(Scanner sc){
-    setMode(CHECK_MODE);
     int treeSize;
     long hash  = 0;
     if (sc.hasNextInt()){
@@ -232,6 +252,7 @@ public class Shell {
       return;
     }
 
+    setMode(CHECK_MODE);
     tree = new MutableMerkleTree<Body>(treeSize);
     ROOT_HASH = hash;
     tree.setHash(0, hash);
