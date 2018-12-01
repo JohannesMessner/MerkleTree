@@ -63,7 +63,7 @@ public class Shell {
 
       String inputLine = stdin.readLine();
       if(inputLine == null) {
-        System.out.println("Error!");
+        QUIT = true;
       }else {
         handleCommand(inputLine);
       }
