@@ -1,10 +1,12 @@
+import Bodies.Body;
+import Bodies.Cuboid;
+import Bodies.Cylinder;
 import MerkleTree.MerkleTreeBuilder;
 import MerkleTree.MutableMerkleTree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -221,10 +223,10 @@ public class Shell {
   }
 
   /**
-   * Returns a Body-object for a given String.
+   * Returns a Bodies.Body-object for a given String.
    *
    * @param value String-representation of a body
-   * @return Body-object, null if String not syntactically correct
+   * @return Bodies.Body-object, null if String not syntactically correct
    */
   private static Body getBody(String value){
 

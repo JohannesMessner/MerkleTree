@@ -1,3 +1,5 @@
+package Bodies;
+
 /**
  * Abstract class of geometrical 3D-bodies.
  */
