@@ -133,9 +133,7 @@ abstract class MerkleNode<V> {
     String outputString = "";
     outputString = addOpenBracket(outputString);
     outputString = addValue(outputString);
-    //outputString = addSpace(outputString);
     outputString = addLeftSubtree(outputString);
-    //outputString = addSpace(outputString);
     outputString = addRightSubree(outputString);
     outputString = addClosingBracket(outputString);
     return outputString;

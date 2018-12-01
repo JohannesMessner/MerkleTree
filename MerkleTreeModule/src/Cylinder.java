@@ -16,6 +16,6 @@ public class Cylinder extends Body {
 
   @Override
   public String toString(){
-    return "Cuboid(" + this.radius + "," + this.height + ")";
+    return "Cylinder(" + this.radius + "," + this.height + ")";
   }
 }

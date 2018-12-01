@@ -100,31 +100,4 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     }
     getParent().update();
   }
-
-//  @Override
-//  List<Integer> getMissing(List<Integer> currentlyMissing, int index) {
-//    boolean siblingHasHash = (getParent().getLeft().hasHash() && !getParent().getRight().hasHash()) || (!getParent().getLeft().hasHash() && getParent().getRight().hasHash());
-//    if (!hasHash() && siblingHasHash){
-//      currentlyMissing.add(index);
-//      return currentlyMissing;
-//    }else {
-//      return currentlyMissing;
-//    }
-//  }
-
-//  @Override
-//  List<Integer> getMissing(List<Integer> currentlyMissing, int index){
-//    if (hasHash()) {
-//      addIndices(currentlyMissing, index);
-//    }
-//    return currentlyMissing;
-//  }
-
-  //  @Override
-//  protected void setHash(long hashValue) {
-//    if (!value.isPresent()){
-//      super.setHash(hashValue);
-//    }
-//  }
-
 }
