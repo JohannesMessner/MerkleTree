@@ -414,14 +414,8 @@ public class Shell {
 
   private static String toIndexString(List<Integer> indices){
     Collections.sort(indices);
-    StringBuilder strbuilder = new StringBuilder("[");
-    for (Integer i : indices){
-      strbuilder.append(i);
-      strbuilder.append(",");
-    }
-    strbuilder.deleteCharAt(strbuilder.toString().length() - 1);
-    strbuilder.append("]");
-    return strbuilder.toString();
+    return indices.toString().replaceAll(" ", "");
+
   }
 
   private static void setMode(int mode){

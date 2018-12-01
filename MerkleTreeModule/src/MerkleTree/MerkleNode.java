@@ -181,8 +181,8 @@ abstract class MerkleNode<V> {
       return currentlyMissing;
     }else{
       if (getRight() != null && getLeft() != null) {
-        getLeft().getMissing(currentlyMissing, 2 * index + 1);
         getRight().getMissing(currentlyMissing, 2 * index + 2);
+        getLeft().getMissing(currentlyMissing, 2 * index + 1);
       }
       return currentlyMissing;
     }
