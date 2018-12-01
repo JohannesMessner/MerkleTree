@@ -8,25 +8,25 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   private Optional<V> value;
 
   /** Constructor assigning an empty Optional-object to value. */
-  MerkleLeaf(){
+  MerkleLeaf() {
     super();
     this.value = Optional.empty();
   }
 
   /** Alternative Constructor that also assigns a parent-node. */
-  MerkleLeaf(MerkleInnerNode<V> parent){
+  MerkleLeaf(MerkleInnerNode<V> parent) {
     super(parent);
     this.value = Optional.empty();
   }
 
-  void setValue(V value){
+  void setValue(V value) {
     this.value = Optional.of(value);
     update();
   }
 
   /** Calculates the hash-code. */
   @Override
-  protected long calculateHash(){
+  protected long calculateHash() {
     if (value.isPresent()) {
       return value.hashCode();
     }
@@ -53,11 +53,9 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     return null;
   }
 
-  /**
-   * Deletes the stored has-code and the stored value-object.
-   */
+  /** Deletes the stored has-code and the stored value-object. */
   @Override
-  public void clear(){
+  public void clear() {
     super.clear();
     value = Optional.empty();
   }
@@ -81,21 +79,18 @@ class MerkleLeaf<V> extends MerkleNode<V> {
    * @return String with the value added to it.
    */
   @Override
-  protected String addValue(String str){
-    if (this.value.isPresent()){
-      return str + "\"" + this.value.get().toString()+ "\"";
+  protected String addValue(String str) {
+    if (this.value.isPresent()) {
+      return str + "\"" + this.value.get().toString() + "\"";
     }
     return str + "*";
   }
 
-  /**
-   * Recalculates the hashes for itself and calls the parent's update-method.
-   *
-   */
+  /** Recalculates the hashes for itself and calls the parent's update-method. */
   @Override
-  protected void update(){
+  protected void update() {
     setHash(calculateHash());
-    if (getParent() == null){
+    if (getParent() == null) {
       return;
     }
     getParent().update();

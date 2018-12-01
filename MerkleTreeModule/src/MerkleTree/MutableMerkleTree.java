@@ -21,8 +21,8 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    *
    * @param numberOfLeafs int representing the # of Leafs (= # of list items)
    */
-  public MutableMerkleTree(int numberOfLeafs){
-    if (numberOfLeafs < 2){
+  public MutableMerkleTree(int numberOfLeafs) {
+    if (numberOfLeafs < 2) {
       throw new IllegalArgumentException();
     }
     numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
@@ -37,34 +37,34 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param numberOfLeafs int representing the minimum number of leaves
    * @param startingNode MerkleInnerNode<V> starting point of the node-creation
    */
-  private void createNodeStructure(int numberOfLeafs, MerkleInnerNode<V> startingNode){
-    //numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
+  private void createNodeStructure(int numberOfLeafs, MerkleInnerNode<V> startingNode) {
+    // numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
     int treeDepth = log2(numberOfLeafs);
     startingNode.createNodeStructure(treeDepth);
   }
 
-  /**
-   * Expands the tree to accomondate twice as many objects.
-   */
-  protected void expand(){
+  /** Expands the tree to accomondate twice as many objects. */
+  protected void expand() {
     this.root.setParent(new MerkleInnerNode<V>());
     this.root.getParent().setLeft(this.root);
-    this.root.getParent().setRight(new MerkleInnerNode<V>((MerkleInnerNode<V>) this.root.getParent()));
+    this.root
+        .getParent()
+        .setRight(new MerkleInnerNode<V>((MerkleInnerNode<V>) this.root.getParent()));
     this.root = (MerkleInnerNode<V>) this.root.getParent();
     createNodeStructure(this.numberOfLeafs, (MerkleInnerNode<V>) root.getRight());
     this.numberOfLeafs *= 2;
   }
 
-  private int log2(int n){
+  private int log2(int n) {
     int exponent = 0;
-    while (Math.pow(2, exponent) != n){
+    while (Math.pow(2, exponent) != n) {
       exponent++;
     }
     return exponent;
   }
 
-  private boolean isPowerOfTwo(int n){
-    return n > 1 && ((n &(n-1)) == 0 );
+  private boolean isPowerOfTwo(int n) {
+    return n > 1 && ((n & (n - 1)) == 0);
   }
 
   /**
@@ -73,38 +73,37 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param n number whose next number of 2 is wanted
    * @return next bigger power of 2, or n if n is a power of 2
    */
-  private int toNextPowerOfTwo(int n){
+  private int toNextPowerOfTwo(int n) {
 
-    while (!isPowerOfTwo(n)){
+    while (!isPowerOfTwo(n)) {
       n++;
     }
     return n;
   }
 
   /**
-   * Serches for a Node with a given Index.
-   * Indexing follows a breath-first approach.
+   * Serches for a Node with a given Index. Indexing follows a breath-first approach.
    *
    * @param index Index of the wanted Node
    * @return MerkleNode that has been found
    */
-  MerkleNode<V> search(int index){
+  MerkleNode<V> search(int index) {
     return search(index, root);
   }
 
-  private MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode){
+  private MerkleNode<V> search(int index, MerkleInnerNode<V> startingNode) {
     List<Boolean> pathToNode = calculatePathToNode(index);
     MerkleInnerNode<V> currentNode = startingNode;
 
-    for (Boolean direction : pathToNode){
+    for (Boolean direction : pathToNode) {
 
       if (direction.equals(right) && currentNode.getRight() instanceof MerkleInnerNode) {
         currentNode = (MerkleInnerNode<V>) currentNode.getRight();
-      }else if (direction.equals(right) && currentNode.getRight() instanceof  MerkleLeaf){
+      } else if (direction.equals(right) && currentNode.getRight() instanceof MerkleLeaf) {
         return currentNode.getRight();
-      }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleInnerNode){
+      } else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleInnerNode) {
         currentNode = (MerkleInnerNode<V>) currentNode.getLeft();
-      }else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleLeaf){
+      } else if (direction.equals(left) && currentNode.getLeft() instanceof MerkleLeaf) {
         return currentNode.getLeft();
       }
     }
@@ -118,25 +117,25 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param index Index of the target-Node
    * @return LinkedList with information about the path to the target-Node.
    */
-  private LinkedList<Boolean> calculatePathToNode(int index){
+  private LinkedList<Boolean> calculatePathToNode(int index) {
     return calculatePathToNode(index, new LinkedList<Boolean>());
   }
 
-  private LinkedList<Boolean> calculatePathToNode(int index, LinkedList<Boolean> currentPath){
+  private LinkedList<Boolean> calculatePathToNode(int index, LinkedList<Boolean> currentPath) {
 
-    if (index == 0){
+    if (index == 0) {
       return currentPath;
     }
 
-    if (index % 2 == 0){
+    if (index % 2 == 0) {
       currentPath.add(0, right);
-      currentPath = calculatePathToNode((index - 2) / 2 , currentPath);
-    }else{
+      currentPath = calculatePathToNode((index - 2) / 2, currentPath);
+    } else {
       currentPath.add(0, left);
-      currentPath = calculatePathToNode((index - 1) / 2 , currentPath);
+      currentPath = calculatePathToNode((index - 1) / 2, currentPath);
     }
 
-    if (currentPath.size() > log2(this.numberOfLeafs)){
+    if (currentPath.size() > log2(this.numberOfLeafs)) {
       throw new IndexOutOfBoundsException();
     }
 
@@ -164,9 +163,9 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   public void setValue(int position, V value) {
     int BFSindex = toBFSindex(position);
     MerkleNode<V> targetNode = search(BFSindex);
-    if (targetNode instanceof MerkleLeaf){
+    if (targetNode instanceof MerkleLeaf) {
       ((MerkleLeaf<V>) targetNode).setValue(value);
-    }else{
+    } else {
       throw new IllegalArgumentException("Node ist not a Leaf-Node.");
     }
   }
@@ -177,13 +176,11 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param leafPositon position among Leaves from left to right
    * @return BFS-index for the Leaf
    */
-  private int toBFSindex(int leafPositon){
+  private int toBFSindex(int leafPositon) {
     return this.numberOfLeafs - 1 + leafPositon;
   }
 
-  /**
-   * Clears the tree from all the hashes ans values.
-   */
+  /** Clears the tree from all the hashes ans values. */
   @Override
   public void clear() {
     root.clear();
@@ -195,7 +192,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param value V to be inserted
    * @return boolean true, if value is inserted, false if list is too small
    */
-  boolean push(V value){
+  boolean push(V value) {
     return root.push(value);
   }
 
@@ -206,7 +203,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   @Override
   public boolean isConsistent() {
-    if (!getMissing().isEmpty()){
+    if (!getMissing().isEmpty()) {
       return false;
     }
     return root.isConsistent();
@@ -228,7 +225,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @return String representing the tree.
    */
   @Override
-  public String toString(){
+  public String toString() {
     return root.toString();
   }
 }

@@ -3,8 +3,8 @@ package MerkleTree;
 import java.util.List;
 
 /**
- * Merkle-tree that can't be modified.
- * Wraps a MutableMerkleTree
+ * Merkle-tree that can't be modified. Wraps a MutableMerkleTree.
+ *
  * @param <V> Type of Object the tree will hold
  */
 public class UnmodifiableMerkleTree<V> implements Hashtree<V> {

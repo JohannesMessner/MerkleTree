@@ -17,12 +17,12 @@ abstract class MerkleNode<V> {
   private Optional<Long> hash;
 
   /** Constructor that assigns an empty Optional-object to hash. */
-  MerkleNode(){
+  MerkleNode() {
     this.hash = Optional.empty();
   }
 
   /** Alternative Constructor that also assigns a parent-node. */
-  MerkleNode(MerkleInnerNode<V> parent){
+  MerkleNode(MerkleInnerNode<V> parent) {
     this.hash = Optional.empty();
     this.parent = parent;
   }
@@ -32,7 +32,7 @@ abstract class MerkleNode<V> {
    *
    * @param parent parent-Node
    */
-  void setParent(MerkleNode<V> parent){
+  void setParent(MerkleNode<V> parent) {
     if (this.parent == null) {
       this.parent = parent;
     }
@@ -43,7 +43,7 @@ abstract class MerkleNode<V> {
    *
    * @return boolean that indicates if the hash is consistent.
    */
-  protected boolean isConsistent(){
+  protected boolean isConsistent() {
     return hash.get() == calculateHash();
   }
 
@@ -53,7 +53,7 @@ abstract class MerkleNode<V> {
    * @return long hash-code
    * @throws NoSuchElementException when no hash-code is stored
    */
-  long getStoredHash() throws NoSuchElementException{
+  long getStoredHash() throws NoSuchElementException {
     return hash.get();
   }
 
@@ -62,7 +62,7 @@ abstract class MerkleNode<V> {
    *
    * @return boolean indicating whether hash-code is present.
    */
-  boolean hasHash(){
+  boolean hasHash() {
     return hash.isPresent();
   }
 
@@ -71,17 +71,15 @@ abstract class MerkleNode<V> {
    *
    * @param hashValue value of the hash-code
    */
-  void setHash(long hashValue){
+  void setHash(long hashValue) {
     hash = Optional.of(hashValue);
   }
 
-  MerkleNode<V> getParent(){
+  MerkleNode<V> getParent() {
     return parent;
   }
 
-  /**
-   * Recalculates the hash-code for itself and all nodes above itself.
-   */
+  /** Recalculates the hash-code for itself and all nodes above itself. */
   protected abstract void update();
 
   /**
@@ -91,20 +89,18 @@ abstract class MerkleNode<V> {
    */
   protected abstract long calculateHash();
 
-  protected boolean setLeft(MerkleNode<V> left){
+  protected boolean setLeft(MerkleNode<V> left) {
     this.left = left;
     return true;
   }
 
-  protected boolean setRight(MerkleNode<V> right){
+  protected boolean setRight(MerkleNode<V> right) {
     this.right = right;
     return true;
   }
 
-  /**
-   * Deletes the stored hash-code.
-   */
-  public void clear(){
+  /** Deletes the stored hash-code. */
+  public void clear() {
     hash = Optional.empty();
   }
 
@@ -122,14 +118,14 @@ abstract class MerkleNode<V> {
    * @param value V to be inserted
    * @return boolean true, if value is inserted, false if list is too small
    */
-  protected boolean push(V value){
-    if (this.getLeft() == null && this.getRight() == null){
+  protected boolean push(V value) {
+    if (this.getLeft() == null && this.getRight() == null) {
       return false;
     }
 
-    if (!this.getLeft().hasHash()){
+    if (!this.getLeft().hasHash()) {
       return this.getLeft().push(value);
-    }else if (!this.getRight().hasHash()){
+    } else if (!this.getRight().hasHash()) {
       return this.getRight().push(value);
     }
 
@@ -142,7 +138,7 @@ abstract class MerkleNode<V> {
    * @return String represetning the tree-structure below the Node.
    */
   @Override
-  public String toString(){
+  public String toString() {
     String outputString = "";
     outputString = addOpenBracket(outputString);
     outputString = addValue(outputString);
@@ -152,16 +148,16 @@ abstract class MerkleNode<V> {
     return outputString;
   }
 
-  private String addOpenBracket(String str){
+  private String addOpenBracket(String str) {
     return "(" + str;
   }
 
   protected abstract String addValue(String str);
 
-  private String addLeftSubtree(String str){
+  private String addLeftSubtree(String str) {
     StringBuilder builder = new StringBuilder(str);
 
-    if (left != null){
+    if (left != null) {
       builder.append(left.toString());
       builder.append(" ");
     }
@@ -169,17 +165,17 @@ abstract class MerkleNode<V> {
     return builder.toString();
   }
 
-  private String addRightSubree(String str){
+  private String addRightSubree(String str) {
     StringBuilder builder = new StringBuilder(str);
 
-    if (right != null){
+    if (right != null) {
       builder.append(right.toString());
     }
 
     return builder.toString();
   }
 
-  private String addClosingBracket(String str){
+  private String addClosingBracket(String str) {
     return str + ")";
   }
 
@@ -190,12 +186,14 @@ abstract class MerkleNode<V> {
    * @param index index of the Node itself
    * @return List of the indices of the missing hashes
    */
-  List<Integer> getMissing(List<Integer> currentlyMissing, int index){
+  List<Integer> getMissing(List<Integer> currentlyMissing, int index) {
 
-    if (hasNoHashesUnderneath() && !hasHash() && (siblingHasHashesUnderneath(index) || parentIsRoot())){
+    if (hasNoHashesUnderneath()
+        && !hasHash()
+        && (siblingHasHashesUnderneath(index) || parentIsRoot())) {
       currentlyMissing.add(index);
       return currentlyMissing;
-    }else{
+    } else {
       if (getRight() != null && getLeft() != null) {
         getRight().getMissing(currentlyMissing, 2 * index + 2);
         getLeft().getMissing(currentlyMissing, 2 * index + 1);
@@ -204,11 +202,11 @@ abstract class MerkleNode<V> {
     }
   }
 
-  private boolean parentIsRoot(){
+  private boolean parentIsRoot() {
 
-    if (parent == null){
+    if (parent == null) {
       return false;
-    }else {
+    } else {
       return parent.getParent() == null;
     }
   }
@@ -219,15 +217,15 @@ abstract class MerkleNode<V> {
    * @param index of the Node itsels
    * @return boolean indicating the presence of hashes below the sibling-Node
    */
-  private boolean siblingHasHashesUnderneath(int index){
+  private boolean siblingHasHashesUnderneath(int index) {
     MerkleNode<V> sibling;
-    if (parent != null){
-      if (index % 2 != 0){
+    if (parent != null) {
+      if (index % 2 != 0) {
         sibling = parent.getRight();
-      }else {
+      } else {
         sibling = parent.getLeft();
       }
-    }else{
+    } else {
       return true;
     }
     return !sibling.hasNoHashesUnderneath() || sibling.hasHash();
@@ -238,11 +236,11 @@ abstract class MerkleNode<V> {
    *
    * @return boolean representing the presence of hashes below itself
    */
-  private boolean hasNoHashesUnderneath(){
-    if (getLeft() == null || getRight() == null){
+  private boolean hasNoHashesUnderneath() {
+    if (getLeft() == null || getRight() == null) {
       return true;
     }
-    if (left.hasHash() || right.hasHash()){
+    if (left.hasHash() || right.hasHash()) {
       return false;
     }
     return left.hasNoHashesUnderneath() && right.hasNoHashesUnderneath();

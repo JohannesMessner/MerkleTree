@@ -5,7 +5,7 @@ import java.util.Optional;
 
 class MerkleInnerNode<V> extends MerkleNode<V> {
 
-  public MerkleInnerNode (){
+  public MerkleInnerNode() {
     super();
   }
 
@@ -14,7 +14,7 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    *
    * @param parent MerkleTree.MerkleInnerNode that is the Nodes parent
    */
-  public MerkleInnerNode(MerkleInnerNode<V> parent){
+  public MerkleInnerNode(MerkleInnerNode<V> parent) {
     super(parent);
   }
 
@@ -28,11 +28,9 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
     return getLeft().getStoredHash() * getRight().getStoredHash();
   }
 
-  /**
-   * Deletes the hash-code for itself and all Nodes below itself.
-   */
+  /** Deletes the hash-code for itself and all Nodes below itself. */
   @Override
-  public void clear(){
+  public void clear() {
     super.clear();
     getLeft().clear();
     getRight().clear();
@@ -44,8 +42,8 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    * @return boolean indicating whether the hash-codes ar consistent.
    */
   @Override
-  protected boolean isConsistent(){
-    if (!getLeft().hasHash() && !getRight().hasHash()){
+  protected boolean isConsistent() {
+    if (!getLeft().hasHash() && !getRight().hasHash()) {
       return true;
     }
     return super.isConsistent() && getLeft().isConsistent() && getRight().isConsistent();
@@ -58,11 +56,11 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    * @return String with the value added to it.
    */
   @Override
-  protected String addValue(String str){
+  protected String addValue(String str) {
     if (!hasHash()) {
       return str + "* ";
     }
-    return  str + this.getStoredHash() + " ";
+    return str + this.getStoredHash() + " ";
   }
 
   /**
@@ -70,31 +68,28 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    *
    * @param treeDepth depth (= height) of the structure that will be created
    */
-  void createNodeStructure(int treeDepth){
-    if (treeDepth > 1){
+  void createNodeStructure(int treeDepth) {
+    if (treeDepth > 1) {
       this.setLeft(new MerkleInnerNode<V>(this));
-      ((MerkleInnerNode<V>)this.getLeft()).createNodeStructure(treeDepth-1);
+      ((MerkleInnerNode<V>) this.getLeft()).createNodeStructure(treeDepth - 1);
       this.setRight(new MerkleInnerNode<V>(this));
-      ((MerkleInnerNode<V>)this.getRight()).createNodeStructure(treeDepth-1);
-    }else if(treeDepth == 1){
+      ((MerkleInnerNode<V>) this.getRight()).createNodeStructure(treeDepth - 1);
+    } else if (treeDepth == 1) {
       this.setLeft(new MerkleLeaf<V>(this));
       this.setRight(new MerkleLeaf<V>(this));
     }
   }
 
-  /**
-   * Recalculates the hashes of itself and all other Nodes above it.
-   */
+  /** Recalculates the hashes of itself and all other Nodes above it. */
   @Override
-  protected void update(){
-    if (!this.getRight().hasHash() || !this.getLeft().hasHash()){
+  protected void update() {
+    if (!this.getRight().hasHash() || !this.getLeft().hasHash()) {
       return;
     }
     setHash(calculateHash());
-    if (getParent() == null){
+    if (getParent() == null) {
       return;
     }
     getParent().update();
   }
-
 }
