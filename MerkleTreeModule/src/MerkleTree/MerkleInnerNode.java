@@ -97,34 +97,4 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
     getParent().update();
   }
 
-//  @Override
-//  List<Integer> getMissing(List<Integer> currentlyMissing, int index) {
-////    int parentIndex;
-////    if (index % 2 == 0){
-////      parentIndex = (index - 2)/2;
-////    }else {
-////      parentIndex = (index - 1)/2;
-////    }
-//
-//    if (!getRight().hasHash() & !getLeft().hasHash() & !(getLeft().getMissing(currentlyMissing, 2*index +1).size() > currentlyMissing.size()) & !(getRight().getMissing(currentlyMissing, 2*index +2).size() > currentlyMissing.size()) & !hasHash()){
-//      currentlyMissing.add(index);
-////      if (currentlyMissing.contains(2*index + 1)){
-////        currentlyMissing.remove()
-////      }
-//      return currentlyMissing;
-//    }else {
-//      return currentlyMissing;
-//    }
-//  }
-
-//  @Override List<Integer> getMissing(List<Integer> currentlyMissing, int index){
-//    getLeft().getMissing(currentlyMissing, 2*index + 1);
-//    getRight().getMissing(currentlyMissing, 2*index + 2);
-//    return currentlyMissing;
-//  }
-
-//  @Override
-//  boolean isMissing(){
-//    return
-//  }
 }

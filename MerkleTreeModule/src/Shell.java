@@ -4,6 +4,7 @@ import MerkleTree.MutableMerkleTree;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -71,7 +72,7 @@ public class Shell {
           "'NEW_CHECK n h': launches check-mode with a new tree with n leaves and a root-hash of h\n";
 
   /**
-   *
+   * Takes user-input and calls the corresponding tree-commands.
    *
    * @param args
    * @throws IOException
@@ -92,6 +93,11 @@ public class Shell {
     }
     }
 
+  /**
+   * Transforms the input into actual methods to be called.
+   *
+   * @param inputLine String representing the user input
+   */
   private static void handleCommand(String inputLine){
     Scanner sc = new Scanner(inputLine);
     sc.useDelimiter("\\s+");
@@ -214,6 +220,12 @@ public class Shell {
     }
   }
 
+  /**
+   * Returns a Body-object for a given String.
+   *
+   * @param value String-representation of a body
+   * @return Body-object, null if String not syntactically correct
+   */
   private static Body getBody(String value){
 
     String numbersOnly = value.replaceAll("[^\\d]", " ");
@@ -412,12 +424,23 @@ public class Shell {
     QUIT = true;
   }
 
+  /**
+   * Deletes all white-spaces from the String-representation of a List.
+   *
+   * @param indices List to be transformed
+   * @return String-representation without white-spaces
+   */
   private static String toIndexString(List<Integer> indices){
     Collections.sort(indices);
     return indices.toString().replaceAll(" ", "");
 
   }
 
+  /**
+   * Switches between the different shell-modes.
+   *
+   * @param mode to be switched to
+   */
   private static void setMode(int mode){
     CURRENT_MODE = mode;
     if (mode == BUILD_MODE){

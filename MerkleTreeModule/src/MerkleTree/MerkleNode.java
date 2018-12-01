@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+/**
+ * Class of Nodes in a MerkleTree
+ *
+ * @param <V> Type of Object the Node will hold
+ */
 abstract class MerkleNode<V> {
 
   private MerkleNode<V> parent;
@@ -22,6 +27,11 @@ abstract class MerkleNode<V> {
     this.parent = parent;
   }
 
+  /**
+   * Assignes a parent-Node to the Node
+   *
+   * @param parent parent-Node
+   */
   void setParent(MerkleNode<V> parent){
     if (this.parent == null) {
       this.parent = parent;
@@ -56,6 +66,11 @@ abstract class MerkleNode<V> {
     return hash.isPresent();
   }
 
+  /**
+   * Sets a hash-code
+   *
+   * @param hashValue value of the hash-code
+   */
   void setHash(long hashValue){
     hash = Optional.of(hashValue);
   }
@@ -143,10 +158,6 @@ abstract class MerkleNode<V> {
 
   protected abstract String addValue(String str);
 
-  private String addSpace(String str){
-    return str + " ";
-  }
-
   private String addLeftSubtree(String str){
     StringBuilder builder = new StringBuilder(str);
 
@@ -172,6 +183,13 @@ abstract class MerkleNode<V> {
     return str + ")";
   }
 
+  /**
+   * Returns which hashes below itself are missing for a consistency-check.
+   *
+   * @param currentlyMissing indices of hashes that are already missing
+   * @param index index of the Node itself
+   * @return List of the indices of the missing hashes
+   */
   List<Integer> getMissing(List<Integer> currentlyMissing, int index){
 
     if (hasNoHashesUnderneath() && !hasHash() && (siblingHasHashesUnderneath(index) || parentIsRoot())){
@@ -195,6 +213,12 @@ abstract class MerkleNode<V> {
     }
   }
 
+  /**
+   * Returns whether it's sibling hsa hashes underneath it.
+   *
+   * @param index of the Node itsels
+   * @return boolean indicating the presence of hashes below the sibling-Node
+   */
   private boolean siblingHasHashesUnderneath(int index){
     MerkleNode<V> sibling;
     if (parent != null){
@@ -209,6 +233,11 @@ abstract class MerkleNode<V> {
     return !sibling.hasNoHashesUnderneath() || sibling.hasHash();
   }
 
+  /**
+   * Returns whether any of the Nodes below itself contain hashes.
+   *
+   * @return boolean representing the presence of hashes below itself
+   */
   private boolean hasNoHashesUnderneath(){
     if (getLeft() == null || getRight() == null){
       return true;
@@ -218,35 +247,4 @@ abstract class MerkleNode<V> {
     }
     return left.hasNoHashesUnderneath() && right.hasNoHashesUnderneath();
   }
-
-//  void addIndices(List<Integer> currentlyMissing, int index){
-//    if (parent == null){
-//      return;
-//    }
-//    MerkleNode<V> sibling;
-//    int parentIndex;
-//    if (index % 2 == 0){
-//      parentIndex = (index - 2)/2;
-//      sibling = parent.getLeft();
-//      if (!sibling.getLeft().hasHash() && !sibling.getRight().hasHash()){
-//        currentlyMissing.add(index - 1);
-//      }
-//    }else {
-//      parentIndex = (index - 1)/2;
-//      sibling = parent.getRight();
-//      boolean siblingCantBeCalculated =
-//      if (siblingCantBeCalculated){
-//        currentlyMissing.add(index + 1);
-//      }
-//    }
-//    parent.addIndices(currentlyMissing, parentIndex);
-//  }
-
-  //abstract boolean isMissing();
-
-//  List<Integer> getMissing(List<Integer> currentlyMissing){
-//    if (getParent() != null){
-//      if (!getParent().hasHash() && ( getParent().getLeft().hasHash() )
-//    }
-//  }
 }

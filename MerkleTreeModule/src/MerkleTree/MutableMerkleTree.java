@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Class implementing HashTree that is fully mutable.
+ *
+ * @param <V> Type of Object the tree will hold
+ */
 public class MutableMerkleTree<V> implements Hashtree<V> {
   private static final boolean left = true;
   private static final boolean right = false;
 
   private MerkleInnerNode<V> root;
   private int numberOfLeafs;
-
-  /**
-   * Constructor creating a tree with 2 leaves.
-   */
-//  public MutableMerkleTree(){
-//    throw new IllegalArgumentException();
-//  }
 
   /**
    * Constructor creating enough Nodes to accomodate a certain amount of list-items.
@@ -69,6 +67,12 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return n > 1 && ((n &(n-1)) == 0 );
   }
 
+  /**
+   * Returns the next bigger power of 2, or n if n is a power of 2.
+   *
+   * @param n number whose next number of 2 is wanted
+   * @return next bigger power of 2, or n if n is a power of 2
+   */
   private int toNextPowerOfTwo(int n){
 
     while (!isPowerOfTwo(n)){
@@ -139,7 +143,12 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return currentPath;
   }
 
-
+  /**
+   * Sets a hash for a Node with a given position.
+   *
+   * @param position BFS-index of the Node
+   * @param hash hash-code to be set
+   */
   @Override
   public void setHash(int position, long hash) {
     search(position).setHash(hash);
@@ -148,12 +157,12 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   /**
    * Sets a value for a Leaf with a given index.
    *
-   * @param positon int index of the Leaf
+   * @param position int index of the Leaf
    * @param value V to be set in the Leaf
    */
   @Override
-  public void setValue(int positon, V value) {
-    int BFSindex = toBFSindex(positon);
+  public void setValue(int position, V value) {
+    int BFSindex = toBFSindex(position);
     MerkleNode<V> targetNode = search(BFSindex);
     if (targetNode instanceof MerkleLeaf){
       ((MerkleLeaf<V>) targetNode).setValue(value);
@@ -162,9 +171,16 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     }
   }
 
+  /**
+   * Transforms a Leaf-position to a BFS-index
+   *
+   * @param leafPositon position among Leaves from left to right
+   * @return BFS-index for the Leaf
+   */
   private int toBFSindex(int leafPositon){
     return this.numberOfLeafs - 1 + leafPositon;
   }
+
   /**
    * Clears the tree from all the hashes ans values.
    */
@@ -196,6 +212,11 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
     return root.isConsistent();
   }
 
+  /**
+   * Calculates, which Node's hashes are missing for a consistency-check.
+   *
+   * @return Indices of missing Nodes
+   */
   @Override
   public List<Integer> getMissing() {
     return root.getMissing(new ArrayList<Integer>(), 0);

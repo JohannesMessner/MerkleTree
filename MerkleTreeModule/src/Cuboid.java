@@ -1,3 +1,6 @@
+/**
+ * Class representing a 3D-cuboid
+ */
 public class Cuboid extends Body{
   private final int length;
   private final int width;

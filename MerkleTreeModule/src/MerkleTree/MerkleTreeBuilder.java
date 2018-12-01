@@ -1,12 +1,13 @@
 package MerkleTree;
 
+/**
+ * Class that builds and modifies a HashTree.
+ *
+ * @param <V> Type of Object the HashTree will hold
+ */
 public class MerkleTreeBuilder<V> {
 
   private MutableMerkleTree<V> tree;
-
-//  public MerkleTreeBuilder(){
-//    this.tree = new MutableMerkleTree<>();
-//  }
 
   public MerkleTreeBuilder(int numberOfLeaves){
     this.tree = new MutableMerkleTree<>(numberOfLeaves);
@@ -17,7 +18,7 @@ public class MerkleTreeBuilder<V> {
    * Expands the tree if necessary.
    *
    * @param value V to be inserted
-   * @return
+   * @return itself
    */
   public MerkleTreeBuilder<V> push(V value){
     if (!tree.push(value)){
@@ -64,11 +65,6 @@ public class MerkleTreeBuilder<V> {
    */
   public void setHash(int position, long hash){
     tree.setHash(position, hash);
-  }
-
-  //Testing only
-  public MerkleNode<V> search(int index){
-    return tree.search(index);
   }
 
 }
