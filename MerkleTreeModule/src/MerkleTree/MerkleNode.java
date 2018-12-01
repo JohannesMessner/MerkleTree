@@ -1,6 +1,7 @@
 package MerkleTree;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 abstract class MerkleNode<V> {
@@ -40,13 +41,10 @@ abstract class MerkleNode<V> {
    * Returns hash-code without recalculating it.
    *
    * @return long hash-code
+   * @throws NoSuchElementException when no hash-code is stored
    */
-  public long getStoredHash(){
-    //hässlich, besser wäre über ifPresent
-    if(hasHash()){
-      return hash.get();
-    }
-    return 0;
+  long getStoredHash() throws NoSuchElementException{
+    return hash.get();
   }
 
   /**
@@ -54,15 +52,15 @@ abstract class MerkleNode<V> {
    *
    * @return boolean indicating whether hash-code is present.
    */
-  public boolean hasHash(){
+  boolean hasHash(){
     return hash.isPresent();
   }
 
-  protected void setHash(long hashValue){
+  void setHash(long hashValue){
     hash = Optional.of(hashValue);
   }
 
-  protected MerkleNode<V> getParent(){
+  MerkleNode<V> getParent(){
     return parent;
   }
 

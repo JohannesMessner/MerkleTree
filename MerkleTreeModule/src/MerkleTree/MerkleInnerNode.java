@@ -59,14 +59,14 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected String addValue(String str){
-    if (getStoredHash() == 0 || !hasHash()) {
+    if (!hasHash()) {
       return str + "* ";
     }
     return  str + this.getStoredHash() + " ";
   }
 
   /**
-   * Creates a complete Node-structure of a given depth below itself
+   * Creates a complete binary Node-structure of a given depth below itself
    *
    * @param treeDepth depth (= height) of the structure that will be created
    */
