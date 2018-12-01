@@ -140,7 +140,7 @@ public class Shell {
       default:
         System.out.println(INVALID_COMMAND_ERROR);
     }
-
+    sc.close();
   }
 
   private static void handleNew(Scanner sc){
