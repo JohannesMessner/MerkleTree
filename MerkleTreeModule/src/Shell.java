@@ -134,7 +134,7 @@ public class Shell {
 
       case "QUIT":
       case "quit":
-        handleQuit();
+        handleQuit(sc);
         break;
 
       default:
@@ -347,7 +347,8 @@ public class Shell {
     }
   }
 
-  private static void handleQuit(){
+  private static void handleQuit(Scanner sc){
+    sc.close();
     QUIT = true;
   }
 
