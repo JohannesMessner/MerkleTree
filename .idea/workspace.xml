@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4587c8d8-db40-4328-8fe0-434847e89616" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" afterPath="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Shell.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Shell.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="415" column="30" lean-forward="true" selection-start-line="415" selection-start-column="30" selection-end-line="415" selection-end-column="30" />
+            <state relative-caret-position="647">
+              <caret line="166" column="33" lean-forward="false" selection-start-line="166" selection-start-column="33" selection-end-line="166" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MerkleInnerNode.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MerkleInnerNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="243">
+              <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
               <folding>
                 <element signature="e#534#535#0" expanded="true" />
                 <element signature="e#605#606#0" expanded="true" />
@@ -223,9 +222,9 @@
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MutableMerkleTree.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/UnmodifiableMerkleTree.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleTreeBuilder.java" />
-        <option value="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java" />
         <option value="$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java" />
+        <option value="$PROJECT_DIR$/MerkleTreeModule/src/Shell.java" />
       </list>
     </option>
   </component>
@@ -424,13 +423,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542111011387</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Implemented hashing-method for MerkleLeaf">
-      <created>1542197657327</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1542197657327</updated>
     </task>
     <task id="LOCAL-00013" summary="Improved parent-child relationship between node-classes">
       <created>1542203976203</created>
@@ -768,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543658124183</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="purged magic number from getStoredHash()">
+      <created>1543659683521</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1543659683522</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView">
@@ -792,13 +791,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23642534" sideWeight="0.50322235" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17005695" sideWeight="0.49677765" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17005695" sideWeight="0.49677765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295362" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14868106" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872254" sideWeight="0.49785176" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872254" sideWeight="0.49785176" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -872,7 +871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed bug in push() (was expanding too often) by changing the update()-Method for MerkleInnerNode not to set a hash when at least one of the children doesn't have a hash." />
     <MESSAGE value="Fixed bug in calculateHash() in MerkleLeaf" />
     <MESSAGE value="Implemented hashCode in class Body." />
     <MESSAGE value="Started Shell-implementation." />
@@ -897,7 +895,8 @@
     <MESSAGE value="implemented UnmodifiableMerkleTree as a wrapper for MutableMerkleTree" />
     <MESSAGE value="changed build() in MerkleTreeBuilder to return an UnmodifiableMerkleTreee" />
     <MESSAGE value="made toIndexString() in shell simpler and easier to read by replacing the for-loop with a replaceAll-operation" />
-    <option name="LAST_COMMIT_MESSAGE" value="made toIndexString() in shell simpler and easier to read by replacing the for-loop with a replaceAll-operation" />
+    <MESSAGE value="purged magic number from getStoredHash()" />
+    <option name="LAST_COMMIT_MESSAGE" value="purged magic number from getStoredHash()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1300,16 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="415" column="30" lean-forward="true" selection-start-line="415" selection-start-column="30" selection-end-line="415" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -1325,11 +1314,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/MerkleTree/MerkleInnerNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="243">
+          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
           <folding>
             <element signature="e#534#535#0" expanded="true" />
             <element signature="e#605#606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MerkleTreeModule/src/Shell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="647">
+          <caret line="166" column="33" lean-forward="false" selection-start-line="166" selection-start-column="33" selection-end-line="166" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

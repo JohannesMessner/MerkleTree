@@ -101,8 +101,8 @@ public class Shell {
       command = sc.next();
     }
 
-
-    switch (command){
+    try{
+    switch (command) {
       case "NEW":
       case "new":
         handleNew(sc);
@@ -133,6 +133,7 @@ public class Shell {
         handleReady(sc);
         break;
 
+
       case "CHECK":
       case "check":
         handleCheck(sc);
@@ -160,6 +161,10 @@ public class Shell {
 
       default:
         System.out.println(INVALID_COMMAND_ERROR);
+
+      }
+    } catch (IllegalStateException e){
+      System.out.println("Error! " + e.toString());
     }
     sc.close();
   }
@@ -188,8 +193,7 @@ public class Shell {
 
   private static void handlePush(Scanner sc){
     if (CURRENT_MODE != BUILD_MODE){
-      System.out.println(WRONG_MODE_ERROR);
-      return;
+      throw new IllegalStateException(WRONG_MODE_ERROR);
     }
 
     Body bdy = null;
@@ -260,8 +264,7 @@ public class Shell {
 
   private static void handleSetVal(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
-      System.out.println(WRONG_MODE_ERROR);
-      return;
+      throw new IllegalStateException(WRONG_MODE_ERROR);
     }
 
     int position;
@@ -294,8 +297,7 @@ public class Shell {
 
   private static void handleSetHash(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
-      System.out.println(WRONG_MODE_ERROR);
-      return;
+      throw new IllegalStateException(WRONG_MODE_ERROR);
     }
 
     int position;
@@ -327,8 +329,7 @@ public class Shell {
 
   private static void handleReady(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
-      System.out.println(WRONG_MODE_ERROR);
-      return;
+      throw new IllegalStateException(WRONG_MODE_ERROR);
     }
     if (sc.hasNext()){
       System.out.println(TOO_MANY_ARGUMENTS_ERROR);
@@ -345,8 +346,7 @@ public class Shell {
 
   private static void handleCheck(Scanner sc){
     if (CURRENT_MODE != CHECK_MODE){
-      System.out.println(WRONG_MODE_ERROR);
-      return;
+      throw new IllegalStateException(WRONG_MODE_ERROR);
     }
     if (sc.hasNext()){
       System.out.println(TOO_MANY_ARGUMENTS_ERROR);
@@ -389,7 +389,7 @@ public class Shell {
     }else if (CURRENT_MODE == BUILD_MODE){
       builder.clear();
     }else {
-      System.out.println(WRONG_MODE_ERROR);
+      throw new IllegalStateException(WRONG_MODE_ERROR);
     }
   }
 
