@@ -1,4 +1,3 @@
-package Bodies;
 
 /** Abstract class of geometrical 3D-bodies. */
 public abstract class Body {

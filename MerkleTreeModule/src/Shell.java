@@ -1,6 +1,4 @@
-import Bodies.Body;
-import Bodies.Cuboid;
-import Bodies.Cylinder;
+
 import MerkleTree.MerkleTreeBuilder;
 import MerkleTree.MutableMerkleTree;
 
@@ -226,10 +224,10 @@ public class Shell {
   }
 
   /**
-   * Returns a Bodies.Body-object for a given String.
+   * Returns a Body-object for a given String.
    *
    * @param value String-representation of a body
-   * @return Bodies.Body-object, null if String not syntactically correct
+   * @return Body-object, null if String not syntactically correct
    */
   private static Body getBody(String value) {
 
