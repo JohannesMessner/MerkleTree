@@ -26,10 +26,7 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   /** Calculates the hash-code. */
   @Override
   protected long calculateHash() {
-    if (value.isPresent()) {
-      return value.hashCode();
-    }
-    return 0;
+    return value.hashCode();
   }
 
   @Override
@@ -91,7 +88,9 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   /** Recalculates the hashes for itself and calls the parent's update-method. */
   @Override
   protected void update() {
-    setHash(calculateHash());
+    if (value.isPresent()) {
+      setHash(calculateHash());
+    }
     if (getParent() == null) {
       return;
     }
@@ -99,7 +98,18 @@ class MerkleLeaf<V> extends MerkleNode<V> {
   }
 
   @Override
-  protected boolean isConsistent(){
-    return calculateHash() == getStoredHash();
+  protected boolean isConsistent() {
+    if (hasHash() && value.isPresent()){
+      return calculateHash() == getStoredHash();
+    }
+    return true;
+  }
+
+  @Override
+  protected Long calculateHashRecursively(){
+    if (value.isPresent()){
+      return Long.valueOf(value.hashCode());
+    }
+    return null;
   }
 }

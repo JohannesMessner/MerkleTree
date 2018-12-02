@@ -22,11 +22,12 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected long calculateHash() {
-    if (getLeft().hasHash() && getRight().hasHash()){
-      return getLeft().getStoredHash() * getRight().getStoredHash();
-    }else {
-      return getRight().calculateHash() * getLeft().calculateHash();
-    }
+    return getRight().getStoredHash() * getLeft().getStoredHash();
+//    if (getLeft().hasHash() && getRight().hasHash()){
+//      return getLeft().getStoredHash() * getRight().getStoredHash();
+//    }else {
+//      return getRight().calculateHash() * getLeft().calculateHash();
+//    }
   }
 
   /** Deletes the hash-code for itself and all Nodes below itself. */
@@ -44,11 +45,35 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected boolean isConsistent() {
-    if (hasNoHashesUnderneath()){
+    if (hasNoHashesUnderneath()) {
       return true;
-    }else {
+    }else if(!hasHash()) {
       return getLeft().isConsistent() && getRight().isConsistent();
+    }else if(getLeft().hasHash() && getRight().hasHash()){
+      return getLeft().isConsistent() && getRight().isConsistent() && (getStoredHash() == calculateHash());
+    }else {
+      return getStoredHash() == (long) calculateHashRecursively();
     }
+  }
+
+  @Override
+  protected Long calculateHashRecursively(){
+    if (getRight() == null || getRight() == null){
+      return null;
+    }
+    if (getRight().hasHash() && getLeft().hasHash()){
+      return getRight().getStoredHash() * getLeft().getStoredHash();
+    }
+    if (getLeft().hasHash() && !getRight().hasHash()){
+      return getLeft().getStoredHash() * getRight().calculateHashRecursively();
+    }
+    if (!getLeft().hasHash() && getRight().hasHash()){
+      return getLeft().calculateHashRecursively() * getRight().getStoredHash();
+    }
+    if (!getLeft().hasHash() && !getRight().hasHash()){
+      return getLeft().calculateHashRecursively() * getRight().calculateHashRecursively();
+    }
+    return null;
   }
 
   /**

@@ -243,4 +243,6 @@ abstract class MerkleNode<V> {
     }
     return left.hasNoHashesUnderneath() && right.hasNoHashesUnderneath();
   }
+
+  protected abstract Long calculateHashRecursively();
 }
