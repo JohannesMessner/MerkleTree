@@ -44,7 +44,10 @@ abstract class MerkleNode<V> {
    * @return boolean that indicates if the hash is consistent.
    */
   protected boolean isConsistent() {
-    if (hasHash() && left.hasHash() && right.hasHash()) {
+    boolean rightIsCheckable = right != null && right.hasHash();
+    boolean leftIsCheckable = left != null && left.hasHash();
+    boolean hashIsCalculatable = rightIsCheckable && leftIsCheckable;
+    if (hasHash() && hashIsCalculatable) {
       return hash.get() == calculateHash();
     }
     return true;
