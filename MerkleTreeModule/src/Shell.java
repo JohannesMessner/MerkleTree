@@ -22,14 +22,16 @@ public class Shell {
   private static MutableMerkleTree<Body> tree;
 
   private static String PROMPT = "merkle> ";
-  private static int CURRENT_MODE;
+  private static Boolean CURRENT_MODE;
   private static boolean QUIT = false;
-  private static long ROOT_HASH = 0; // Value gets set whenever check-mode is entered,
+
+  // Value gets set whenever check-mode is entered,
   // so the value 0 is not relevant,
   // though required by the compiler
-  private static final int START_MODE = 0;
-  private static final int BUILD_MODE = 1;
-  private static final int CHECK_MODE = 2;
+  private static long ROOT_HASH = 0;
+  private static final Boolean START_MODE = null;
+  private static final Boolean BUILD_MODE = true;
+  private static final Boolean CHECK_MODE = false;
 
   private static final String CUBOID_REGEX = "Cuboid[(](\\d+),(\\d+),(\\d+)[)]";
   private static final String CYLINDER_REGEX = "Cylinder[(]\\d+,\\d+[)]";
@@ -451,7 +453,7 @@ public class Shell {
    *
    * @param mode to be switched to
    */
-  private static void setMode(int mode) {
+  private static void setMode(Boolean mode) {
     CURRENT_MODE = mode;
     if (mode == BUILD_MODE) {
       PROMPT = "build> ";
