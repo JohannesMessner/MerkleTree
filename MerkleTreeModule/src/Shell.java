@@ -6,6 +6,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import bodies.Body;
+import bodies.Cuboid;
+import bodies.Cylinder;
 import merkletree.MerkleTreeBuilder;
 import merkletree.MutableMerkleTree;
 

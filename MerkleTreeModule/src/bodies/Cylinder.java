@@ -1,4 +1,4 @@
-
+package bodies;
 
 /** Class representing a 3D-cylinder. */
 public class Cylinder extends Body {

@@ -5,7 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Class implementing HashTree that is fully mutable.
+ * Class implementing HashTree that is fully mutable. Stores values in it's leaves and calculates
+ * hashes. Can evaluate if it is consistent.
  *
  * @param <V> Type of Object the tree will hold
  */
@@ -38,7 +39,6 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param startingNode MerkleInnerNode starting point of the node-creation
    */
   private void createNodeStructure(int numberOfLeafs, MerkleInnerNode<V> startingNode) {
-    // numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
     int treeDepth = log2(numberOfLeafs);
     startingNode.createNodeStructure(treeDepth);
   }

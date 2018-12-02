@@ -1,4 +1,4 @@
-
+package bodies;
 
 /** Class representing a 3D-cuboid. */
 public class Cuboid extends Body {

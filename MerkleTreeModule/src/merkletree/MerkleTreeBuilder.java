@@ -1,7 +1,8 @@
 package merkletree;
 
 /**
- * Class that builds and modifies a HashTree.
+ * Class that builds and modifies a HashTree. Operates on a MutableHashTree and can build an
+ * UnmodifiableHashTree.
  *
  * @param <V> Type of Object the HashTree will hold
  */

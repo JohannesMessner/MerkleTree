@@ -2,6 +2,11 @@ package merkletree;
 
 import java.util.Optional;
 
+/**
+ * Class representing the leaf-nofes af a Merkle-tree. Stores values in addition to hashes.
+ *
+ * @param <V>
+ */
 class MerkleLeaf<V> extends MerkleNode<V> {
 
   private Optional<V> value;

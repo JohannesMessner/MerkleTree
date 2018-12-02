@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
- * Class of Nodes in a MerkleTree.
+ * Class of Nodes in a MerkleTree. Stores hash-codes.
  *
  * @param <V> Type of Object the Node will hold
  */

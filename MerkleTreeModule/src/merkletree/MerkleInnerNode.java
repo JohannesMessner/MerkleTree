@@ -1,5 +1,10 @@
 package merkletree;
 
+/**
+ * Class representing the inner (non-leaf) nodes of a Merkle-tree.
+ *
+ * @param <V>
+ */
 class MerkleInnerNode<V> extends MerkleNode<V> {
 
   public MerkleInnerNode() {
