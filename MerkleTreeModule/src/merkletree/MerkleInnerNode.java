@@ -22,7 +22,11 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected long calculateHash() {
-    return getLeft().getStoredHash() * getRight().getStoredHash();
+    if (getLeft().hasHash() && getRight().hasHash()){
+      return getLeft().getStoredHash() * getRight().getStoredHash();
+    }else {
+      return getRight().calculateHash() * getLeft().calculateHash();
+    }
   }
 
   /** Deletes the hash-code for itself and all Nodes below itself. */
@@ -40,10 +44,11 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
    */
   @Override
   protected boolean isConsistent() {
-    if (!getLeft().hasHash() && !getRight().hasHash()) {
+    if (hasNoHashesUnderneath()){
       return true;
+    }else {
+      return getLeft().isConsistent() && getRight().isConsistent();
     }
-    return super.isConsistent() && getLeft().isConsistent() && getRight().isConsistent();
   }
 
   /**
