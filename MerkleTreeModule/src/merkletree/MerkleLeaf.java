@@ -99,15 +99,15 @@ class MerkleLeaf<V> extends MerkleNode<V> {
 
   @Override
   protected boolean isConsistent() {
-    if (hasHash() && value.isPresent()){
+    if (hasHash() && value.isPresent()) {
       return calculateHash() == getStoredHash();
     }
     return true;
   }
 
   @Override
-  protected Long calculateHashRecursively(){
-    if (value.isPresent()){
+  protected Long calculateHashRecursively() {
+    if (value.isPresent()) {
       return Long.valueOf(value.hashCode());
     }
     return null;
