@@ -161,8 +161,8 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   @Override
   public void setValue(int position, V value) {
-    int BfsIndex = toBfsIndex(position);
-    MerkleNode<V> targetNode = search(BfsIndex);
+    int bfsIndex = toBfsIndex(position);
+    MerkleNode<V> targetNode = search(bfsIndex);
     if (targetNode instanceof MerkleLeaf) {
       ((MerkleLeaf<V>) targetNode).setValue(value);
     } else {
