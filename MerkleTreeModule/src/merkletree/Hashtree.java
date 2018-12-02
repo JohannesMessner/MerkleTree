@@ -6,7 +6,7 @@ import java.util.List;
  * Interface for a Hash-tree. Stores values in it's leaves and calculates
  * hashes. Can evaluate if it is consistent.
  *
- * @param <V>
+ * @param <V> type of object the tree will hold
  */
 public interface Hashtree<V> {
 

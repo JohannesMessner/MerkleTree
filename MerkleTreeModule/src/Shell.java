@@ -1,3 +1,6 @@
+import bodies.Body;
+import bodies.Cuboid;
+import bodies.Cylinder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +9,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import bodies.Body;
-import bodies.Cuboid;
-import bodies.Cylinder;
 import merkletree.MerkleTreeBuilder;
 import merkletree.MutableMerkleTree;
 

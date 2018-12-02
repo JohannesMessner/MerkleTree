@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * Class representing the leaf-nofes af a Merkle-tree. Stores values in addition to hashes.
  *
- * @param <V>
+ * @param <V> type of object the leaf will hold
  */
 class MerkleLeaf<V> extends MerkleNode<V> {
 

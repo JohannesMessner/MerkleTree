@@ -3,7 +3,7 @@ package merkletree;
 /**
  * Class representing the inner (non-leaf) nodes of a Merkle-tree.
  *
- * @param <V>
+ * @param <V> type of object the node will hold
  */
 class MerkleInnerNode<V> extends MerkleNode<V> {
 
