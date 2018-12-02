@@ -82,6 +82,9 @@ class MerkleLeaf<V> extends MerkleNode<V> {
     if (this.value.isPresent()) {
       return str + "\"" + this.value.get().toString() + "\"";
     }
+    if (hasHash()){
+      return str + this.getStoredHash();
+    }
     return str + "*";
   }
 
