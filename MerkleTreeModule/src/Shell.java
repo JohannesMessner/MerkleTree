@@ -339,7 +339,9 @@ public class Shell {
 
     try {
       tree.setHash(position, hash);
-      ROOT_HASH = hash;
+      if (position == 0) {
+        ROOT_HASH = hash;
+      }
     } catch (IndexOutOfBoundsException e) {
       System.out.println(NO_VALID_POSITION_ERROR);
     }
