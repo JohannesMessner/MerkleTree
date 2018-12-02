@@ -10,7 +10,7 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
   }
 
   /**
-   * Constructor that sets a Parent-Node
+   * Constructor that sets a Parent-Node.
    *
    * @param parent MerkleTree.MerkleInnerNode that is the Nodes parent
    */
@@ -64,7 +64,7 @@ class MerkleInnerNode<V> extends MerkleNode<V> {
   }
 
   /**
-   * Creates a complete binary Node-structure of a given depth below itself
+   * Creates a complete binary Node-structure of a given depth below itself.
    *
    * @param treeDepth depth (= height) of the structure that will be created
    */

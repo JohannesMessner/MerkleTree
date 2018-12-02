@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
- * Class of Nodes in a MerkleTree
+ * Class of Nodes in a MerkleTree.
  *
  * @param <V> Type of Object the Node will hold
  */
@@ -28,7 +28,7 @@ abstract class MerkleNode<V> {
   }
 
   /**
-   * Assignes a parent-Node to the Node
+   * Assignes a parent-Node to the Node.
    *
    * @param parent parent-Node
    */
@@ -67,7 +67,7 @@ abstract class MerkleNode<V> {
   }
 
   /**
-   * Sets a hash-code
+   * Sets a hash-code.
    *
    * @param hashValue value of the hash-code
    */

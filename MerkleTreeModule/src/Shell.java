@@ -54,7 +54,8 @@ public class Shell {
           + "'NEW_CHECK n h': creates a new tree with n leaves and a root-hash of h\n"
           + "'SET_VAL p v': sets a value v for a leaf at position p\n"
           + "'SET_HASH p h': sets a hash h for a node at index p\n"
-          + "'READY?': tells you if the tree is ready for a consistency-check, or which nodes are still missing\n"
+          + "'READY?': tells you if the tree is ready for a consistency-check,"
+          + " or which nodes are still missing\n"
           + "'CHECK': checks the tree for consistency\n"
           + "'CLEAR:' deletes all values and hashes\n"
           + "'DEBUG': prints a string-representation of the tree\n"
@@ -71,16 +72,18 @@ public class Shell {
           + "'QUIT': quits the program";
   private static final String GENERAL_HELP_MESSAGE =
       "You are currently in merkle-mode.\n"
-          + "This application allows you to build merkle-trees or to check trees for their consistency.\n\n"
+          + "This application allows you to build merkle-trees "
+          + "or to check trees for their consistency.\n\n"
           + "You can use the following command:\n\n"
           + "'NEW: n ': launches build-mode with a new tree with n leaves\n"
-          + "'NEW_CHECK n h': launches check-mode with a new tree with n leaves and a root-hash of h\n";
+          + "'NEW_CHECK n h': launches check-mode with a new tree "
+          + "with n leaves and a root-hash of h\n";
 
   /**
    * Takes user-input and calls the corresponding tree-commands.
    *
-   * @param args
-   * @throws IOException
+   * @param args Console-arguments
+   * @throws IOException when IO-related errors occur
    */
   public static void main(String[] args) throws IOException {
 

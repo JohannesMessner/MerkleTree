@@ -35,7 +35,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * Creates the needed Nodes below a given Node with a minimum number of leaves.
    *
    * @param numberOfLeafs int representing the minimum number of leaves
-   * @param startingNode MerkleInnerNode<V> starting point of the node-creation
+   * @param startingNode MerkleInnerNode starting point of the node-creation
    */
   private void createNodeStructure(int numberOfLeafs, MerkleInnerNode<V> startingNode) {
     // numberOfLeafs = toNextPowerOfTwo(numberOfLeafs);
@@ -171,7 +171,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
   }
 
   /**
-   * Transforms a Leaf-position to a BFS-index
+   * Transforms a Leaf-position to a BFS-index.
    *
    * @param leafPositon position among Leaves from left to right
    * @return BFS-index for the Leaf

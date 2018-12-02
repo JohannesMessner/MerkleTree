@@ -12,9 +12,10 @@ public class UnmodifiableMerkleTree<V> implements Hashtree<V> {
 
   /**
    * Constructor that sets a MutableMerkleTree that gets wrapped.
+   *
    * @param muTree the MutableMerkleTree
    */
-  UnmodifiableMerkleTree(MutableMerkleTree<V> muTree){
+  UnmodifiableMerkleTree(MutableMerkleTree<V> muTree) {
     this.muTree = muTree;
   }
 
@@ -40,9 +41,7 @@ public class UnmodifiableMerkleTree<V> implements Hashtree<V> {
     throw new UnsupportedOperationException("This tree is unmodifiable");
   }
 
-  /**
-   * Always throws an UnsupportedOperationException.
-   */
+  /** Always throws an UnsupportedOperationException. */
   @Override
   public void clear() {
     throw new UnsupportedOperationException("This tree is unmodifiable");
@@ -68,7 +67,7 @@ public class UnmodifiableMerkleTree<V> implements Hashtree<V> {
     return muTree.getMissing();
   }
 
-  MerkleNode<V> search(int index){
+  MerkleNode<V> search(int index) {
     return muTree.search(index);
   }
 
@@ -78,7 +77,7 @@ public class UnmodifiableMerkleTree<V> implements Hashtree<V> {
    * @param value V to be inserted
    * @return boolean true, if value is inserted, false if list is too small
    */
-  boolean push(V value){
+  boolean push(V value) {
     throw new UnsupportedOperationException("This tree is unmodifiable");
   }
 
@@ -88,7 +87,7 @@ public class UnmodifiableMerkleTree<V> implements Hashtree<V> {
    * @return String representing the tree.
    */
   @Override
-  public String toString(){
+  public String toString() {
     return muTree.toString();
   }
 }
