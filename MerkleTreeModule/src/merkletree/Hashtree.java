@@ -1,4 +1,4 @@
-package MerkleTree;
+package merkletree;
 
 import java.util.List;
 

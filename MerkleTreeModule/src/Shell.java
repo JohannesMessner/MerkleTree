@@ -1,6 +1,6 @@
 
-import MerkleTree.MerkleTreeBuilder;
-import MerkleTree.MutableMerkleTree;
+import merkletree.MerkleTreeBuilder;
+import merkletree.MutableMerkleTree;
 
 import java.io.BufferedReader;
 import java.io.IOException;

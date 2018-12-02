@@ -1,4 +1,4 @@
-package MerkleTree;
+package merkletree;
 
 /**
  * Class that builds and modifies a HashTree.

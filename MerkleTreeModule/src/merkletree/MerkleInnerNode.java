@@ -1,7 +1,4 @@
-package MerkleTree;
-
-import java.util.List;
-import java.util.Optional;
+package merkletree;
 
 class MerkleInnerNode<V> extends MerkleNode<V> {
 

@@ -1,4 +1,4 @@
-package MerkleTree;
+package merkletree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -161,8 +161,8 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    */
   @Override
   public void setValue(int position, V value) {
-    int BFSindex = toBFSindex(position);
-    MerkleNode<V> targetNode = search(BFSindex);
+    int BfsIndex = toBfsIndex(position);
+    MerkleNode<V> targetNode = search(BfsIndex);
     if (targetNode instanceof MerkleLeaf) {
       ((MerkleLeaf<V>) targetNode).setValue(value);
     } else {
@@ -176,7 +176,7 @@ public class MutableMerkleTree<V> implements Hashtree<V> {
    * @param leafPositon position among Leaves from left to right
    * @return BFS-index for the Leaf
    */
-  private int toBFSindex(int leafPositon) {
+  private int toBfsIndex(int leafPositon) {
     return this.numberOfLeafs - 1 + leafPositon;
   }
 

@@ -1,6 +1,5 @@
-package MerkleTree;
+package merkletree;
 
-import java.util.List;
 import java.util.Optional;
 
 class MerkleLeaf<V> extends MerkleNode<V> {
